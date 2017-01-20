@@ -13,7 +13,7 @@ public class Connect {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver O.K.");
 
-            String url = "jdbc:mysql://localhost/M2lJava";
+            String url = "jdbc:mysql://localhost/m2ljava";
             String user = "root";
             String pass = "";
 
