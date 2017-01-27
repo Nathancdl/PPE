@@ -8,64 +8,64 @@ import org.junit.Test;
 import inscriptions.*;
 public class InscriptionsTest {
 
-	Inscriptions inscriptionTest = Inscriptions.getInscriptions();
-	Competition competitionEquipeTest = inscriptionTest.createCompetition("CompetEquipeTest", null, true);
-	Competition competitionSoloTest = inscriptionTest.createCompetition("CompetSoloTest", null, false);
-	Equipe equipeTest = inscriptionTest.createEquipe("EquipeTest");
-	Personne personneTest = inscriptionTest.createPersonne("TEST", "test", "tTEST@gmail.com");
+	Inscriptions i = Inscriptions.getInscriptions();
+	Competition cEquipe = i.createCompetition("CompetEquipeTest", null, true);
+	Competition c = i.createCompetition("CompetSoloTest", null, false);
+	Equipe equipeTest = i.createEquipe("EquipeTest");
+	Personne personneTest = i.createPersonne("TEST", "test", "tTEST@gmail.com");
 	
 	@Test
 	public void testGetCompetitions() {
-		Set<Competition> setCompetitionTest = inscriptionTest.getCompetitions();
+		Set<Competition> setCompetitionTest = i.getCompetitions();
 		assertFalse(setCompetitionTest.isEmpty());
 		
 	}
 
 	@Test
 	public void testGetCandidats() {
-		Set<Candidat> setCandidatTest = inscriptionTest.getCandidats();
+		Set<Candidat> setCandidatTest = i.getCandidats();
 		assertFalse(setCandidatTest.isEmpty());
 	}
 
 	@Test
 	public void testCreateCompetition() {
-		Competition competitionTest2 = inscriptionTest.createCompetition("Test", null, false);
-		Set <Competition> setCompetitionTest = inscriptionTest.getCompetitions();
+		Competition competitionTest2 = i.createCompetition("Test", null, false);
+		Set <Competition> setCompetitionTest = i.getCompetitions();
 		assertTrue(setCompetitionTest.contains(competitionTest2));
 	}
 
 	@Test
 	public void testCreatePersonne() {
-		Personne personneTest2 = inscriptionTest.createPersonne("", "", "");
-		Set<Candidat>setPersonneTest2 = inscriptionTest.getCandidats();
+		Personne personneTest2 = i.createPersonne("", "", "");
+		Set<Candidat>setPersonneTest2 = i.getCandidats();
 		assertTrue(setPersonneTest2.contains(personneTest2));
 	}
 
 	@Test
 	public void testCreateEquipe() {
-		Equipe equipeTest2 = inscriptionTest.createEquipe("");
-		Set<Candidat>setEquipeTest2 = inscriptionTest.getCandidats();
+		Equipe equipeTest2 = i.createEquipe("");
+		Set<Candidat>setEquipeTest2 = i.getCandidats();
 		assertTrue(setEquipeTest2.contains(equipeTest2));
 	}
 
 	@Test
 	public void testRemoveCompetition() {
-		Set<Competition> setCompetitionTest = inscriptionTest.getCompetitions();
-		competitionSoloTest.delete();
-		assertFalse(setCompetitionTest.contains(competitionSoloTest));
+		Set<Competition> setCompetitionTest = i.getCompetitions();
+		c.delete();
+		assertFalse(setCompetitionTest.contains(c));
 		
 	}
 
 	@Test
 	public void testRemoveCandidat() {
-		Set<Candidat>setCandidatTest = inscriptionTest.getCandidats();
+		Set<Candidat>setCandidatTest = i.getCandidats();
 		personneTest.delete();
 		assertFalse(setCandidatTest.contains(personneTest));
 	}
 
 	@Test
 	public void testGetInscriptions() {
-		assertEquals(inscriptionTest, Inscriptions.getInscriptions());
+		assertEquals(i, Inscriptions.getInscriptions());
 	}
 
 	/**

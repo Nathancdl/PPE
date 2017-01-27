@@ -9,47 +9,47 @@ import inscriptions.*;
 
 public class PersonneTest {
 	
-	Inscriptions inscriptionTest = Inscriptions.getInscriptions();
-	Personne personneTest = inscriptionTest.createPersonne ("TEST", "test", "tTEST@gmail.com");
+	Inscriptions i = Inscriptions.getInscriptions();
+	Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail");
 	
 
 	@Test
 	public void testDelete() {
-		Equipe equipeTest = inscriptionTest.createEquipe("L'EQUIPE TEST");
-		equipeTest.add(personneTest);
-		Set<Equipe> setEquipesTest = personneTest.getEquipes();
-		personneTest.delete();
-		assertFalse(setEquipesTest.contains(personneTest));
+		Equipe e = i.createEquipe("equipe test");
+		e.add(p);
+		Set<Equipe> setEquipesTest = p.getEquipes();
+		p.delete();
+		assertFalse(setEquipesTest.contains(p));
 	}
 
 	@Test
 	public void testGetPrenom() {
-		assertEquals("test", personneTest.getPrenom());
+		assertEquals("prenomtest", p.getPrenom());
 	}
 
 	@Test
 	public void testSetPrenom() {
-		personneTest.setPrenom("test1");
-		assertEquals("test1", personneTest.getPrenom());
+		p.setPrenom("test1");
+		assertEquals("test1", p.getPrenom());
 	}
 
 	@Test
 	public void testGetMail() {
-		assertEquals("tTEST@gmail.com", personneTest.getMail());
+		assertEquals("ttestemail", p.getMail());
 	}
 
 	@Test
 	public void testSetMail() {
-		personneTest.setMail("TEST@gmail.com");
-		assertEquals("TEST@gmail.com", personneTest.getMail());
+		p.setMail("testemail");
+		assertEquals("testemail", p.getMail());
 	}
 
 	@Test
 	public void testGetEquipes() {
-		Equipe equipeTest = inscriptionTest.createEquipe("L'EQUIPE TEST");
-		equipeTest.add(personneTest);
-		Set<Equipe> setEquipesTest = personneTest.getEquipes();
-		assertTrue(setEquipesTest.contains(equipeTest));
+		Equipe e = i.createEquipe("equipe test");
+		e.add(p);
+		Set<Equipe> setEquipesTest = p.getEquipes();
+		assertTrue(setEquipesTest.contains(e));
 	}
 
 }
