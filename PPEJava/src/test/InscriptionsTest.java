@@ -68,9 +68,13 @@ public class InscriptionsTest {
 		assertEquals(inscriptionTest, Inscriptions.getInscriptions());
 	}
 
-	@Test
-	public void testSauvegarder() {
-		fail("Not yet implemented");
-	}
+	/**
+	 *@Test
+	 *public void testSauvegarder() {
+	 *	fail("Not yet implemented");
+	 *}
+	 *
+	 */
+
 
 }
