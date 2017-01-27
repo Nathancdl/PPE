@@ -11,14 +11,12 @@ public class Connect {
         ResultSet r = null ;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("Driver O.K.");
-
             String url = "jdbc:mysql://localhost/m2ljava";
             String user = "root";
             String pass = "";
 
             java.sql.Connection c = DriverManager.getConnection(url, user, pass);
-            System.out.println("Connexion effective !");
+            System.out.println("OK");
             r = Query(mQuery, c);
             
         } catch (ClassNotFoundException | SQLException e) {
