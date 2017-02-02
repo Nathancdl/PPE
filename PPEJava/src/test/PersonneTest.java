@@ -35,7 +35,7 @@ public class PersonneTest {
 
 	@Test
 	public void testGetMail() {
-		assertEquals("ttestemail", p.getMail());
+		assertEquals("testemail", p.getMail());
 	}
 
 	@Test
