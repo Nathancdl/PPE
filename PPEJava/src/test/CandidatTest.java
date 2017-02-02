@@ -1,24 +1,32 @@
 package test;
 
 import static org.junit.Assert.*;
+import java.util.Set;
 
 import org.junit.Test;
 
+import inscriptions.*;
 public class CandidatTest {
+	
+	
+	Inscriptions i = Inscriptions.getInscriptions();
+	Personne c = i.createPersonne ("nomtest", "prenomtest", "testemail");
+	Set<Candidat>c1 = i.getCandidats();
 
 	@Test
 	public void testCandidat() {
-		fail("Not yet implemented");
+		
 	}
 
 	@Test
 	public void testGetNom() {
-		fail("Not yet implemented");
+		assertEquals("nomtest", c.getNom());
 	}
 
 	@Test
 	public void testSetNom() {
-		fail("Not yet implemented");
+		c.setNom("test1");
+		assertEquals("test1", c.getNom());
 	}
 
 	@Test
@@ -38,17 +46,13 @@ public class CandidatTest {
 
 	@Test
 	public void testDelete() {
-		fail("Not yet implemented");
+		Personne cc = i.createPersonne ("nomtest", "prenomtest", "testemail");
+		
+		Set<Candidat>c2 = i.getCandidats();
+		c.add(c2);
+		cc.delete();
+		assertFalse(c2.contains(i));
 	}
 
-	@Test
-	public void testCompareTo() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testToString() {
-		fail("Not yet implemented");
-	}
 
 }
