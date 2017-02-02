@@ -40,15 +40,12 @@ public class MenuUser {
 				try {
 					java.sql.Connection c = DriverManager.getConnection("jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false", "root", "");
 					System.out.println(c);
-					
+					System.out.println("cbon");
 					
 				}catch (SQLException e) {
 		            System.out.println(e.getMessage());
 		        }
-				return c;
-				Statement state = c.createStatement();
-				state.executeUpdate("INSERT INTO professeur (prof_nom, prof_prenom) VALUES('SALMON', 'Dylan')");
-				state.executeUpdate("DELETE FROM professeur WHERE prof_nom = 'MAMOU'");
+				
 				
 			}
 		};

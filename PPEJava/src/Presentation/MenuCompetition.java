@@ -5,7 +5,7 @@ import utilitaires.ligneDeCommande.Menu;
 
 public class MenuCompetition {
 
-	public static Menu getMenu(String name, Inscriptions inscriptions)
+	public static Menu getMenu(String name)
 	{
 		return new Menu(name,"Competitions","c");
 		

@@ -16,12 +16,12 @@ public class MainMenu {
 	
 	public static Menu getMenuTeams()
 	{
-		return MenuTeam.getMenu("Equipes", inscriptions);
+		return MenuTeam.getMenu("Equipes");
 	}
 	
 	public static Menu getMenuCompetitions()
 	{
-		return MenuCompetition.getMenu("Competitions", inscriptions);
+		return MenuCompetition.getMenu("Competitions");
 	}
 	
 	public static Menu getMainMenu()
