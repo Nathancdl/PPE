@@ -1,7 +1,6 @@
 package Presentation;
 
-import inscriptions.Inscriptions;
-import inscriptions.Personne;
+import inscriptions.*;
 import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
@@ -35,15 +34,29 @@ public class MenuUser {
 	
 	private static Action getActionAdd()
 	{
-		
-			MainMenu.inscriptions.createPersonne(Personne);
-			
-			
+		return new Action()
+		{
+			public void optionSelectionnee()
+			{
+				Scanner sc = new Scanner(System.in);
+				Inscriptions inscriptions = Inscriptions.getInscriptions();
+				System.out.println("user :");
+				String nom = sc.nextLine();
+				System.out.println("equipe :");
+				String equipe = sc.nextLine();
+				System.out.println("mdp :");
+				String mdp = sc.nextLine();
 				
-				
-			
-		
+				Personne test = inscriptions.createPersonne(nom, equipe, mdp); 			}
+		};
 	}
+
+			
+				
+				
+			
+		
+	
 	
 	private static Option getOptionShow()
 	{
