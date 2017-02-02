@@ -15,7 +15,7 @@ import database.Connect;
 public class MenuUser {
 	
 	
-	public static Menu getMenu(String name)
+	public static Menu getMenu(String name, Inscriptions inscriptions)
 	{
 		Menu userMenu = new Menu(name,"p");
 		userMenu.ajoute(getOptionAdd());
@@ -44,11 +44,9 @@ public class MenuUser {
 					
 				}catch (SQLException e) {
 		            System.out.println(e.getMessage());
+		            
 		        }
-				return c;
-				Statement state = c.createStatement();
-				state.executeUpdate("INSERT INTO professeur (prof_nom, prof_prenom) VALUES('SALMON', 'Dylan')");
-				state.executeUpdate("DELETE FROM professeur WHERE prof_nom = 'MAMOU'");
+				
 				
 			}
 		};

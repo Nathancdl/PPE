@@ -10,6 +10,7 @@ public class MonMain {
 
 		MainMenu mainMenu = new MainMenu(Inscriptions.getInscriptions());
 		
+		
 
 	}
 

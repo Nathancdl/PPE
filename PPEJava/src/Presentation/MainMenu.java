@@ -1,17 +1,18 @@
 package Presentation;
 
+import java.util.Scanner;
+
 import inscriptions.Inscriptions;
-import utilitaires.ligneDeCommande.Action;
 import utilitaires.ligneDeCommande.Menu;
-import utilitaires.ligneDeCommande.Option;
 
 public class MainMenu {	
+	
 	
 	static Inscriptions inscriptions;
 	
 	public static Menu getMenuUsers()
 	{
-		return MenuUser.getMenu("Personnes");
+		return MenuUser.getMenu("Personnes", inscriptions);
 	}
 	
 	public static Menu getMenuTeams()
@@ -29,12 +30,13 @@ public class MainMenu {
 		Menu menu = new Menu("Menu Principal");
 		menu.ajoute(getMenuUsers());
 		menu.ajoute(getMenuTeams());
-		menu.ajoute(getMenuCompetitions());		
+		menu.ajoute(getMenuCompetitions());
+		menu.ajouteQuitter("q");
 		return menu;
 	}
 	
 	public MainMenu(Inscriptions inscriptions) {
-		this.inscriptions = inscriptions;
+		MainMenu.inscriptions = inscriptions;
 		Menu menu = getMainMenu();
 		menu.start();
 	}
