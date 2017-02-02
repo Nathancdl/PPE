@@ -15,7 +15,7 @@ import database.Connect;
 public class MenuUser {
 	
 	
-	public static Menu getMenu(String name)
+	public static Menu getMenu(String name, Inscriptions inscriptions)
 	{
 		Menu userMenu = new Menu(name,"p");
 		userMenu.ajoute(getOptionAdd());
@@ -44,6 +44,7 @@ public class MenuUser {
 					
 				}catch (SQLException e) {
 		            System.out.println(e.getMessage());
+		            
 		        }
 				
 				
