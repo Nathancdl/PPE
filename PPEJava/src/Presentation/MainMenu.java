@@ -11,7 +11,7 @@ public class MainMenu {
 	
 	public static Menu getMenuUsers()
 	{
-		return MenuUser.getMenu("Personnes");
+		return MenuUser.getMenu("Personnes", inscriptions);
 	}
 	
 	public static Menu getMenuTeams()

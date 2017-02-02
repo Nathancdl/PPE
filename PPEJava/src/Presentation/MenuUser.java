@@ -5,6 +5,13 @@ import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
 
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
+
+import database.Connect;
+
 public class MenuUser {
 	
 	
@@ -30,8 +37,19 @@ public class MenuUser {
 		{
 			public void optionSelectionnee()
 			{
-				System.out.println("point d'arrivée : ajouter personne");
-				//MainMenu.inscriptions.ajouterUser();
+				try {
+					java.sql.Connection c = DriverManager.getConnection("jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false", "root", "");
+					System.out.println(c);
+					
+					
+				}catch (SQLException e) {
+		            System.out.println(e.getMessage());
+		        }
+				return c;
+				Statement state = c.createStatement();
+				state.executeUpdate("INSERT INTO professeur (prof_nom, prof_prenom) VALUES('SALMON', 'Dylan')");
+				state.executeUpdate("DELETE FROM professeur WHERE prof_nom = 'MAMOU'");
+				
 			}
 		};
 	}

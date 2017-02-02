@@ -9,6 +9,7 @@ public class MonMain {
 		// TODO Auto-generated method stub
 
 		MainMenu mainMenu = new MainMenu(Inscriptions.getInscriptions());
+		
 
 	}
 
