@@ -4,7 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import inscriptions.Inscriptions;
+
 public class EquipeTest {
+	Inscriptions i = Inscriptions.getInscriptions();
 
 	@Test
 	public void testDelete() {
