@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import inscriptions.Inscriptions;
 import utilitaires.ligneDeCommande.Menu;
-
+import java.util.Scanner;
 public class MainMenu {	
 	
 	

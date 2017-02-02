@@ -1,12 +1,14 @@
 package Presentation;
 
 import inscriptions.Inscriptions;
+import inscriptions.Personne;
 import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
 
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import com.mysql.jdbc.Statement;
 
@@ -33,23 +35,14 @@ public class MenuUser {
 	
 	private static Action getActionAdd()
 	{
-		return new Action()
-		{
-			public void optionSelectionnee()
-			{
-				try {
-					java.sql.Connection c = DriverManager.getConnection("jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false", "root", "");
-					System.out.println(c);
-					System.out.println("cbon");
-					
-				}catch (SQLException e) {
-		            System.out.println(e.getMessage());
-		            
-		        }
+		
+			MainMenu.inscriptions.createPersonne(Personne);
+			
+			
 				
 				
-			}
-		};
+			
+		
 	}
 	
 	private static Option getOptionShow()
