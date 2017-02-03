@@ -53,6 +53,8 @@ public class MenuUser {
 			
 				
 				
+			
+		
 	private static Option getOptionShow()
 	{
 		return new Option("Show Personne","2",getActionShow());
@@ -71,6 +73,7 @@ public class MenuUser {
 			}
 		};
 	}
+	
 	
 	private static Option getOptionEdit()
 	{
