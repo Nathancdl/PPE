@@ -30,16 +30,15 @@ public class MenuCompetition {
 	
 	private static Action getActionAdd()
 	{
-		return new Action()
+		return new Action ()
 		{
+			@Override
 			public void optionSelectionnee()
 			{
-				Scanner sc = new Scanner(System.in);
-				 	Inscriptions inscriptions = Inscriptions.getInscriptions();
-				 	System.out.println("Nouvel compet :");
-				 	String compet = sc.nextLine();
-				 	Competition taist = inscriptions.createCompetition(compet, null, false);
-				System.out.println(taist);}
+				Inscriptions inscriptions = Inscriptions.getInscriptions();
+				String nom= utilitaires.EntreesSorties.getString("Nom : ");
+                inscriptions.createCompetition(nom, null, false);
+			}
 		};
 	}
 

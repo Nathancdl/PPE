@@ -31,21 +31,15 @@ public class MenuTeam {
 	
 	private static Action getActionAdd()
 	{
-		return new Action()
+		return new Action ()
 		{
+			@Override
 			public void optionSelectionnee()
 			{
-				Scanner sc = new Scanner(System.in);
 				Inscriptions inscriptions = Inscriptions.getInscriptions();
-				System.out.println("user :");
-				String nom = sc.nextLine();
-				System.out.println("equipe :");
-				String equipe = sc.nextLine();
-				System.out.println("mdp :");
-				String mdp = sc.nextLine();
-				
-				Personne test = inscriptions.createPersonne(nom, equipe, mdp); 	
-				System.out.println(test);}
+				String nom= utilitaires.EntreesSorties.getString("Nom : ");
+				inscriptions.createEquipe(nom);
+			}
 		};
 	}
 
