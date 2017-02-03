@@ -5,9 +5,12 @@ import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
 
+import static org.junit.Assert.assertFalse;
+
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Scanner;
+import java.util.Set;
 
 import com.mysql.jdbc.Statement;
 
@@ -18,18 +21,18 @@ public class MenuUser {
 	
 	public static Menu getMenu(String name, Inscriptions inscriptions)
 	{
-		Menu userMenu = new Menu(name,"p");
+		Menu userMenu = new Menu(name,"1");
 		userMenu.ajoute(getOptionAdd());
 		userMenu.ajoute(getOptionShow());
 		userMenu.ajoute(getOptionEdit());
-		userMenu.ajouteRevenir("r");
-		userMenu.ajouteQuitter("q");
+		userMenu.ajouteRevenir("4");
+		userMenu.ajouteQuitter("5");
 		return userMenu;
 	}
 	
 	private static Option getOptionAdd()
 	{
-		return new Option("Ajouter une personne","a",getActionAdd());
+		return new Option("Add personne","1",getActionAdd());
 	}
 	
 	private static Action getActionAdd()
@@ -47,7 +50,8 @@ public class MenuUser {
 				System.out.println("mdp :");
 				String mdp = sc.nextLine();
 				
-				Personne test = inscriptions.createPersonne(nom, equipe, mdp); 			}
+				Personne test = inscriptions.createPersonne(nom, equipe, mdp); 	
+				System.out.println(test);}
 		};
 	}
 
@@ -60,7 +64,7 @@ public class MenuUser {
 	
 	private static Option getOptionShow()
 	{
-		return new Option("Afficher une Personne","f",getActionShow());
+		return new Option("Show Personne","2",getActionShow());
 	}
 	
 	private static Action getActionShow()
@@ -68,16 +72,18 @@ public class MenuUser {
 		return new Action()
 		{
 			public void optionSelectionnee()
-			{
-				System.out.println("point d'arrivée : afficher personnes");
-				//MainMenu.inscriptions.afficherUser();
+			{					
+				Inscriptions i = Inscriptions.getInscriptions();
+				Set<Candidat> setCandidatTest = i.getCandidats();
+				System.out.println(setCandidatTest);
+				
 			}
 		};
 	}
 	
 	private static Option getOptionEdit()
 	{
-		return new Option("Editer une Personne","e",getActionEdit());
+		return new Option("Edit Personne","3",getActionEdit());
 	}
 	
 	private static Action getActionEdit()
@@ -86,8 +92,8 @@ public class MenuUser {
 		{
 			public void optionSelectionnee()
 			{
-				System.out.println("point d'arrivée : editer personne");
-				//MainMenu.inscriptions.editerUser();
+				System.out.println("editer personne");
+				
 			}
 		};
 	}

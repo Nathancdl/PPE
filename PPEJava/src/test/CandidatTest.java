@@ -49,7 +49,7 @@ public class CandidatTest {
 		Personne cc = i.createPersonne ("nomtest", "prenomtest", "testemail");
 		
 		Set<Candidat>c2 = i.getCandidats();
-		c.add(c2);
+		
 		cc.delete();
 		assertFalse(c2.contains(i));
 	}

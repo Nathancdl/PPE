@@ -5,10 +5,12 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import inscriptions.Inscriptions;
+import inscriptions.Personne;
 
 public class EquipeTest {
 	Inscriptions i = Inscriptions.getInscriptions();
-
+	Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail");
+	
 	@Test
 	public void testDelete() {
 		fail("Not yet implemented");
@@ -46,7 +48,7 @@ public class EquipeTest {
 
 	@Test
 	public void testGetNom() {
-		fail("Not yet implemented");
+		assertEquals("prenomtest", p.getPrenom());
 	}
 
 	@Test

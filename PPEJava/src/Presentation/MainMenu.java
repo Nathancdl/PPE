@@ -17,12 +17,12 @@ public class MainMenu {
 	
 	public static Menu getMenuTeams()
 	{
-		return MenuTeam.getMenu("Equipes");
+		return MenuTeam.getMenu("Equipes", inscriptions);
 	}
 	
 	public static Menu getMenuCompetitions()
 	{
-		return MenuCompetition.getMenu("Competitions");
+		return MenuCompetition.getMenu("Competitions", inscriptions);
 	}
 	
 	public static Menu getMainMenu()
@@ -31,7 +31,7 @@ public class MainMenu {
 		menu.ajoute(getMenuUsers());
 		menu.ajoute(getMenuTeams());
 		menu.ajoute(getMenuCompetitions());
-		menu.ajouteQuitter("q");
+		menu.ajouteQuitter("4");
 		return menu;
 	}
 	
