@@ -4,19 +4,12 @@ import inscriptions.*;
 import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
-
-import static org.junit.Assert.assertFalse;
-
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.Set;
 
-import com.mysql.jdbc.Statement;
-
-import database.Connect;
 
 public class MenuUser {
+	
 	
 	
 	public static Menu getMenu(String name, Inscriptions inscriptions)
@@ -73,8 +66,8 @@ public class MenuUser {
 		{
 			public void optionSelectionnee()
 			{					
-				Inscriptions i = Inscriptions.getInscriptions();
-				Set<Candidat> setCandidatTest = i.getCandidats();
+				Inscriptions inscriptions = Inscriptions.getInscriptions();
+				Set<Candidat> setCandidatTest = inscriptions.getCandidats();
 				System.out.println(setCandidatTest);
 				
 			}
@@ -97,4 +90,5 @@ public class MenuUser {
 			}
 		};
 	}
+	
 }

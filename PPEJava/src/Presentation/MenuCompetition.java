@@ -4,7 +4,6 @@ import inscriptions.*;
 import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
-
 import java.util.Scanner;
 import java.util.Set;
 

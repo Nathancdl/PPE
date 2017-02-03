@@ -1,10 +1,8 @@
 package Presentation;
 
-import java.util.Scanner;
-
 import inscriptions.*;
 import utilitaires.ligneDeCommande.*;
-import java.util.Scanner;
+
 public class MainMenu {	
 	
 	
