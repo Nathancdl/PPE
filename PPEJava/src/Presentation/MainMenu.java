@@ -3,7 +3,7 @@ package Presentation;
 import java.util.Scanner;
 
 import inscriptions.*;
-import utilitaires.ligneDeCommande.Menu;
+import utilitaires.ligneDeCommande.*;
 import java.util.Scanner;
 public class MainMenu {	
 	
@@ -22,7 +22,7 @@ public class MainMenu {
 	
 	public static Menu getMenuCompetitions()
 	{
-		return MenuCompetition.getMenu("Competitions", inscriptions);
+		return MenuCompetition.getMenu("Competitions");
 	}
 	
 	public static Menu getMainMenu()
