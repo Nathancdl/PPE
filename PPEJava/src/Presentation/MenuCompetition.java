@@ -62,8 +62,8 @@ public class MenuCompetition {
 			public void optionSelectionnee()
 			{					
 				Inscriptions i = Inscriptions.getInscriptions();
-				Set<Candidat> setCandidatTest = i.getCandidats();
-				System.out.println(setCandidatTest);
+				Set<Competition> setCompetition = i.getCompetitions();
+				System.out.println(setCompetition);
 				
 			}
 		};
@@ -80,7 +80,7 @@ public class MenuCompetition {
 		{
 			public void optionSelectionnee()
 			{
-				System.out.println("editer personne");
+				System.out.println("editer compet");
 				
 			}
 		};

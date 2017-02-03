@@ -26,7 +26,7 @@ public class MenuTeam {
 	
 	private static Option getOptionAdd()
 	{
-		return new Option("Add personne","1",getActionAdd());
+		return new Option("Add equipe","1",getActionAdd());
 	}
 	
 	private static Action getActionAdd()
@@ -58,7 +58,7 @@ public class MenuTeam {
 	
 	private static Option getOptionShow()
 	{
-		return new Option("Show Personne","2",getActionShow());
+		return new Option("Show equipe","2",getActionShow());
 	}
 	
 	private static Action getActionShow()
@@ -68,8 +68,8 @@ public class MenuTeam {
 			public void optionSelectionnee()
 			{					
 				Inscriptions i = Inscriptions.getInscriptions();
-				Set<Candidat> setCandidatTest = i.getCandidats();
-				System.out.println(setCandidatTest);
+				Set<Equipe> setEquipe = i.getEquipes();
+				System.out.println(setEquipe);
 				
 			}
 		};
@@ -77,7 +77,7 @@ public class MenuTeam {
 	
 	private static Option getOptionEdit()
 	{
-		return new Option("Edit Personne","3",getActionEdit());
+		return new Option("Edit equipe","3",getActionEdit());
 	}
 	
 	private static Action getActionEdit()

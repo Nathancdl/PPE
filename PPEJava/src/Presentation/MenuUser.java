@@ -4,6 +4,10 @@ import inscriptions.*;
 import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
+import utilitaires.ligneDeCommande.ActionListe;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
@@ -25,36 +29,30 @@ public class MenuUser {
 	
 	private static Option getOptionAdd()
 	{
-		return new Option("Add personne","1",getActionAdd());
+		return new Option("Add personne","1",getActionadd());
 	}
 	
-	private static Action getActionAdd()
+	
+
+	private static Action getActionadd() 
 	{
-		return new Action()
+		return new Action ()
 		{
+			@Override
 			public void optionSelectionnee()
 			{
-				Scanner sc = new Scanner(System.in);
 				Inscriptions inscriptions = Inscriptions.getInscriptions();
-				System.out.println("user :");
-				String nom = sc.nextLine();
-				System.out.println("equipe :");
-				String equipe = sc.nextLine();
-				System.out.println("mdp :");
-				String mdp = sc.nextLine();
-				
-				Personne test = inscriptions.createPersonne(nom, equipe, mdp); 	
-				System.out.println(test);}
+				String nom= utilitaires.EntreesSorties.getString("Nom : "),
+                prenom = utilitaires.EntreesSorties.getString("Prénom : "),
+                mail = utilitaires.EntreesSorties.getString("Mail : ");
+				inscriptions.createPersonne(nom, prenom, mail);
+			}
 		};
 	}
 
 			
 				
 				
-			
-		
-	
-	
 	private static Option getOptionShow()
 	{
 		return new Option("Show Personne","2",getActionShow());
