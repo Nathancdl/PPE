@@ -5,13 +5,8 @@ import utilitaires.ligneDeCommande.Menu;
 import utilitaires.ligneDeCommande.Option;
 import utilitaires.ligneDeCommande.Action;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.util.Scanner;
 
-import com.mysql.jdbc.Statement;
-
-import database.Connect;
 
 public class MenuCompetition {
 	
@@ -29,7 +24,7 @@ public class MenuCompetition {
 	
 	private static Option getOptionAdd()
 	{
-		return new Option("Ajouter une personne","a",getActionAdd());
+		return new Option("Ajouter une compet","ac",getActionAdd());
 	}
 	
 	private static Action getActionAdd()
@@ -56,7 +51,7 @@ public class MenuCompetition {
 	
 	private static Option getOptionShow()
 	{
-		return new Option("Afficher une Personne","f",getActionShow());
+		return new Option("Afficher une compet","fc",getActionShow());
 	}
 	
 	private static Action getActionShow()
@@ -65,7 +60,7 @@ public class MenuCompetition {
 		{
 			public void optionSelectionnee()
 			{
-				System.out.println("point d'arrivée : afficher personnes");
+				System.out.println("afficher personnes");
 				//MainMenu.inscriptions.afficherUser();
 			}
 		};
@@ -73,7 +68,7 @@ public class MenuCompetition {
 	
 	private static Option getOptionEdit()
 	{
-		return new Option("Editer une Personne","e",getActionEdit());
+		return new Option("Editer une compet","ec",getActionEdit());
 	}
 	
 	private static Action getActionEdit()
@@ -82,7 +77,7 @@ public class MenuCompetition {
 		{
 			public void optionSelectionnee()
 			{
-				System.out.println("point d'arrivée : editer personne");
+				System.out.println("editer personne");
 				//MainMenu.inscriptions.editerUser();
 			}
 		};
