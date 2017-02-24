@@ -1,9 +1,9 @@
 package Presentation;
 
 import inscriptions.*;
-import utilitaires.ligneDeCommande.Menu;
-import utilitaires.ligneDeCommande.Option;
-import utilitaires.ligneDeCommande.Action;
+import commandLine.Menu;
+import commandLine.Option;
+import commandLine.Action;
 
 import java.util.Scanner;
 import java.util.Set;
@@ -37,7 +37,7 @@ public class MenuTeam {
 			public void optionSelectionnee()
 			{
 				Inscriptions inscriptions = Inscriptions.getInscriptions();
-				String nom= utilitaires.EntreesSorties.getString("Nom : ");
+				String nom= EntreesSorties.getString("Nom : ");
 				inscriptions.createEquipe(nom);
 			}
 		};

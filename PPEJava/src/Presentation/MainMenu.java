@@ -1,7 +1,7 @@
 package Presentation;
 
 import inscriptions.*;
-import utilitaires.ligneDeCommande.*;
+import commandLine.*;
 
 public class MainMenu {	
 	

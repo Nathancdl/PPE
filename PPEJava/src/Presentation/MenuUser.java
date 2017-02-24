@@ -1,10 +1,11 @@
 package Presentation;
 
 import inscriptions.*;
-import utilitaires.ligneDeCommande.Menu;
-import utilitaires.ligneDeCommande.Option;
-import utilitaires.ligneDeCommande.Action;
-import utilitaires.ligneDeCommande.ActionListe;
+
+import commandLine.Menu;
+import commandLine.Option;
+import commandLine.Action;
+import commandLine.ActionListe;
 
 import java.util.ArrayList;
 import java.util.List;
