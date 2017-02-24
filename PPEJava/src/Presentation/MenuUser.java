@@ -43,9 +43,9 @@ public class MenuUser {
 			public void optionSelectionnee()
 			{
 				Inscriptions inscriptions = Inscriptions.getInscriptions();
-				String nom= utilitaires.EntreesSorties.getString("Nom : "),
-                prenom = utilitaires.EntreesSorties.getString("Prénom : "),
-                mail = utilitaires.EntreesSorties.getString("Mail : ");
+				String nom= EntreesSorties.getString("Nom : "),
+                prenom = EntreesSorties.getString("Prénom : "),
+                mail = EntreesSorties.getString("Mail : ");
 				inscriptions.createPersonne(nom, prenom, mail);
 			}
 		};
