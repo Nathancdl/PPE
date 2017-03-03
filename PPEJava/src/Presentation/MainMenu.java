@@ -1,41 +1,46 @@
 package Presentation;
 
-import inscriptions.*;
-import commandLine.*;
+import java.io.IOException;
 
-public class MainMenu {	
-	
-	
-	static Inscriptions inscriptions;
-	
-	public static Menu getMenuUsers()
+import commandLine.*;
+import inscriptions.Inscriptions;
+
+
+public class MainMenu 
+{
+	private static Menu menuPrincipal;
+	private static MenuUser menuPersonne;
+	private static MenuTeam menuEquipe;
+	private static MenuCompetition menuCompetition;
+	private static Inscriptions inscriptions;
+	public MainMenu()
 	{
-		return MenuUser.getMenu("Personnes", inscriptions);
+		inscriptions = Inscriptions.getInscriptions();
+		menuPrincipal=getMenuPrincipal();
+		menuPersonne = new MenuUser();
+		menuEquipe = new MenuTeam();
+		menuCompetition = new MenuCompetition();
 	}
 	
-	public static Menu getMenuTeams()
+	public void start()
 	{
-		return MenuTeam.getMenu("Equipes", inscriptions);
+		menuPrincipal.start();
 	}
 	
-	public static Menu getMenuCompetitions()
+	public static Inscriptions getInscriptions()
 	{
-		return MenuCompetition.getMenu("Competitions", inscriptions);
+		return inscriptions;
 	}
 	
-	public static Menu getMainMenu()
+	//Menu principal
+	static Menu getMenuPrincipal()
 	{
-		Menu menu = new Menu("Menu Principal");
-		menu.ajoute(getMenuUsers());
-		menu.ajoute(getMenuTeams());
-		menu.ajoute(getMenuCompetitions());
-		menu.ajouteQuitter("4");
-		return menu;
+	        Menu menuPrincipal = new Menu("Menu Principal");
+	        menuPrincipal.ajoute(menuPersonne.getMenuPersonne());
+	        menuPrincipal.ajoute(menuEquipe.getMenuEquipe());
+	        menuPrincipal.ajoute(menuCompetition.getMenuCompetition());
+	        menuPrincipal.ajouteQuitter("q");
+	        return menuPrincipal;
 	}
-	
-	public MainMenu(Inscriptions inscriptions) {
-		MainMenu.inscriptions = inscriptions;
-		Menu menu = getMainMenu();
-		menu.start();
-	}
+
 }

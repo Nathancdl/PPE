@@ -6,15 +6,19 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.Collections;
 import java.time.LocalDate;
+import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
+
+import Presentation.Fenetre;
+import Presentation.MainMenu;
+import presist.BDD;
 
 /**
  * Point d'entr√©e dans l'application, un seul objet de type Inscription
  * permet de g√©rer les comp√©titions, candidats (de type equipe ou personne)
- * ainsi que d'inscrire des candidats √† des comp√©tition.
+ * ainsi que d'inscrire des candidats √  des comp√©tition.
  */
 
 public class Inscriptions implements Serializable
@@ -25,9 +29,9 @@ public class Inscriptions implements Serializable
 	
 	private SortedSet<Competition> competitions = new TreeSet<>();
 	private SortedSet<Candidat> candidats = new TreeSet<>();
-
-	private Inscriptions()
+	public Inscriptions()
 	{
+		
 	}
 	
 	/**
@@ -57,10 +61,25 @@ public class Inscriptions implements Serializable
 	
 	public SortedSet<Personne> getPersonnes()
 	{
+//		SortedSet<Personne> personnes = new TreeSet<>();
+//		for (Candidat c : getCandidats())
+//			if (c instanceof Personne)
+//				personnes.add((Personne)c);
+//		return Collections.unmodifiableSortedSet(personnes);
+		return getPersonnes(false);
+	}
+	
+	/**
+	 * Retourne toutes les personnes non-supprimÈs.
+	 * @return
+	 */
+	
+	public SortedSet<Personne> getPersonnes(boolean valide)
+	{
 		SortedSet<Personne> personnes = new TreeSet<>();
 		for (Candidat c : getCandidats())
-			if (c instanceof Personne)
-				personnes.add((Personne)c);
+			if (c instanceof Personne && (!valide || c.getIsDelete()))
+					personnes.add((Personne)c);
 		return Collections.unmodifiableSortedSet(personnes);
 	}
 
@@ -88,9 +107,9 @@ public class Inscriptions implements Serializable
 	 */
 	
 	public Competition createCompetition(String nom, 
-			LocalDate dateCloture, boolean enEquipe)
+			LocalDate dateCloture, boolean enEquipe,boolean save)
 	{
-		Competition competition = new Competition(this, nom, dateCloture, enEquipe);
+		Competition competition = new Competition(this, nom, dateCloture, enEquipe,save);
 		competitions.add(competition);
 		return competition;
 	}
@@ -98,17 +117,30 @@ public class Inscriptions implements Serializable
 	/**
 	 * Cr√©√©e une Candidat de type Personne. Ceci est le seul moyen, il n'y a pas
 	 * de constructeur public dans {@link Personne}.
-
 	 * @param nom
 	 * @param prenom
 	 * @param mail
 	 * @return
 	 */
 	
-	public Personne createPersonne(String nom, String prenom, String mail)
+	public Competition editeCompetition(Competition competition, String nom)
 	{
-		Personne personne = new Personne(this, nom, prenom, mail);
+		competition.setNom(nom);
+		return competition;
+	}
+	
+	public Personne createPersonne(String nom, String prenom, String mail , boolean save)
+	{
+		Personne personne = new Personne(this,nom, prenom, mail,save);
 		candidats.add(personne);
+		return personne;
+	}
+	
+	public Personne editePersonne(Personne personne,String nom,String prenom,String mail)
+	{
+		personne.setPrenom(prenom);
+		personne.setNom(nom);
+		personne.setMail(mail);
 		return personne;
 	}
 	
@@ -121,12 +153,19 @@ public class Inscriptions implements Serializable
 	 * @return
 	 */
 	
-	public Equipe createEquipe(String nom)
+	public Equipe createEquipe(String nom , boolean save)
 	{
-		Equipe equipe = new Equipe(this, nom);
+		Equipe equipe = new Equipe(this, nom, save);
 		candidats.add(equipe);
 		return equipe;
 	}
+	
+	public Equipe editeEquipe(Equipe equipe, String nom)
+	{
+		equipe.setNom(nom);
+		return equipe;
+	}
+	
 	
 	void remove(Competition competition)
 	{
@@ -140,25 +179,35 @@ public class Inscriptions implements Serializable
 	
 	/**
 	 * Retourne l'unique instance de cette classe.
-	 * Cr√©e cet objet s'il n'existe d√©j√†.
+	 * Cr√©e cet objet s'il n'existe d√©j√ .
 	 * @return l'unique objet de type {@link Inscriptions}.
 	 */
 	
 	public static Inscriptions getInscriptions()
 	{
 		
-		if (inscriptions == null)
-		{
-			inscriptions = readObject();
-			if (inscriptions == null)
-				inscriptions = new Inscriptions();
-		}
+//		if (inscriptions == null)
+//		{
+//			inscriptions = readObject();
+//			if (inscriptions == null)
+//				inscriptions = new Inscriptions();
+//		}
+		//TODO : 
+		BDD bdd = new BDD();
+		inscriptions= new Inscriptions();
+		bdd.selectPersonne(inscriptions);
+		System.out.println("Personne rÈcupÈrÈ...");
+		bdd.selectEquipe(inscriptions);
+		System.out.println("Equipe rÈcupÈrÈ...");
+		bdd.selectCompetitions(inscriptions);
+		System.out.println("Competition rÈcupÈrÈ...");
+		bdd.selectAttrEquipe(inscriptions);
 		return inscriptions;
 	}
 
 	/**
 	 * Retourne un object inscriptions vide. Ne modifie pas les comp√©titions
-	 * et candidats d√©j√† existants.
+	 * et candidats d√©j√  existants.
 	 */
 	
 	public Inscriptions reinitialiser()
@@ -169,7 +218,7 @@ public class Inscriptions implements Serializable
 
 	/**
 	 * Efface toutes les modifications sur Inscriptions depuis la derni√®re sauvegarde.
-	 * Ne modifie pas les comp√©titions et candidats d√©j√† existants.
+	 * Ne modifie pas les comp√©titions et candidats d√©j√  existants.
 	 */
 	
 	public Inscriptions recharger()
@@ -236,29 +285,23 @@ public class Inscriptions implements Serializable
 	public String toString()
 	{
 		return "Candidats : " + getCandidats().toString()
-			+ "\nCompetitions  " + getCompetitions().toString();
+			+ "\nCompetitions : " + getCompetitions().toString();
 	}
 	
-	/*public static void main(String[] args)
+	public static void main(String[] args)
 	{
-		Inscriptions inscriptions = Inscriptions.getInscriptions();
-		Competition flechettes = inscriptions.createCompetition("Mondial de fl√©chettes", null, false);
-		Personne tony = inscriptions.createPersonne("Tony", "Dent de plomb", "azerty"), 
-				boris = inscriptions.createPersonne("Boris", "le Hachoir", "ytreza");
-		flechettes.add(tony);
-		Equipe lesManouches = inscriptions.createEquipe("Les Manouches");
-		lesManouches.add(boris);
-		lesManouches.add(tony);
-		System.out.println(inscriptions);
-		lesManouches.delete();
-		System.out.println(inscriptions);
-		try
-		{
-			inscriptions.sauvegarder();
-		} 
-		catch (IOException e)
-		{
-			System.out.println("Sauvegarde impossible." + e);
-		}
-	}*/
+		
+//        MenuPrincipal menu = new MenuPrincipal();
+//        menu.start();
+        Fenetre fenetre = new Fenetre();
+        fenetre.setVisible(true);
+//		try
+//		{
+//			inscriptions.sauvegarder();
+//		} 
+//		catch (IOException e)
+//		{
+//			System.out.println("Sauvegarde impossible." + e);
+//		}
+	}
 }

@@ -4,8 +4,10 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
+import presist.*;
+
 /**
- * ReprÃ©sente une personne physique pouvant s'inscrire Ã  une compÃ©tition.
+ * Représente une personne physique pouvant s'inscrire à une compétition.
  */
 
 public class Personne extends Candidat
@@ -13,37 +15,62 @@ public class Personne extends Candidat
 	private static final long serialVersionUID = 4434646724271327254L;
 	private String prenom, mail;
 	private Set<Equipe> equipes;
+	boolean isDelete;
+
+	private BDD bdd = new BDD();
 	
-	Personne(Inscriptions inscriptions, String nom, String prenom, String mail)
+	public Personne(Inscriptions inscriptions, String nom, String prenom, String mail,boolean save)
 	{
 		super(inscriptions, nom);
 		this.prenom = prenom;
 		this.mail = mail;
 		equipes = new TreeSet<>();
+		if(save)
+		{
+			bdd.save(this);
+		}
 	}
 
 	/**
-	 * Retourne le prÃ©nom de la personne.
+	 * Retourne la valeur de suppression de Personne.
+	 * @return
+	 */
+	
+	public boolean getIsDelete() {
+		return isDelete;
+	}
+
+	/**
+	 * Modifie la valeur de suppression de Personne.
+	 */
+	
+	public void setIsDelete(boolean isDelete) {
+		this.isDelete = isDelete;
+	}
+	
+	/**
+	 * Retourne le prénom de la personne.
 	 * @return
 	 */
 	
 	public String getPrenom()
 	{
-		return prenom;
+		return this.prenom;
 	}
 
 	/**
-	 * Modifie le prÃ©nom de la personne.
+	 * Modifie le prénom de la personne.
 	 * @param prenom
 	 */
 	
 	public void setPrenom(String prenom)
 	{
 		this.prenom = prenom;
+		//bdd.save(this);
 	}
 
 	/**
-	 * Retourne l'adresse Ã©lectronique de la personne.
+	 * Retourne l'adresse électronique de la personne.
 	 * @return
 	 */
 	
@@ -53,7 +80,7 @@ public class Personne extends Candidat
 	}
 
 	/**
-	 * Modifie l'adresse Ã©lectronique de la personne.
+	 * Modifie l'adresse électronique de la personne.
 	 * @param mail
 	 */
 	
@@ -61,9 +88,19 @@ public class Personne extends Candidat
 	{
 		this.mail = mail;
 	}
+	
+	/**
+	 * Retourne l'id de la personne.
+	 * @param mail
+	 */
+	
+	/**
+	 * Modifie l'id de la personne.
+	 * @param mail
+	 */
 
 	/**
-	 * Retoure les Ã©quipes dont cette personne fait partie.
+	 * Retoure les équipes dont cette personne fait partie.
 	 * @return
 	 */
 	
@@ -72,12 +109,12 @@ public class Personne extends Candidat
 		return Collections.unmodifiableSet(equipes);
 	}
 	
-	boolean add(Equipe equipe)
+	public boolean add(Equipe equipe)
 	{
 		return equipes.add(equipe);
 	}
 
-	boolean remove(Equipe equipe)
+	public boolean remove(Equipe equipe)
 	{
 		return equipes.remove(equipe);
 	}
@@ -87,7 +124,7 @@ public class Personne extends Candidat
 	{
 		super.delete();
 		for (Equipe e : equipes)
-			e.remove(this);
+			e.remove(this,true);
 	}
 	
 	@Override

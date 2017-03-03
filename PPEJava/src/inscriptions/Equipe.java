@@ -4,9 +4,11 @@ import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import presist.BDD;
+
 /**
- * ReprÃ©sente une Equipe. C'est-Ã -dire un ensemble de personnes pouvant 
- * s'inscrire Ã  une compÃ©tition.
+ * Représente une Equipe. C'est-à-dire un ensemble de personnes pouvant 
+ * s'inscrire à une compétition.
  * 
  */
 
@@ -14,14 +16,47 @@ public class Equipe extends Candidat
 {
 	private static final long serialVersionUID = 4147819927233466035L;
 	private SortedSet<Personne> membres = new TreeSet<>();
+	private int id;
+
+	BDD bdd = new BDD();
+	boolean isDelete;
 	
-	Equipe(Inscriptions inscriptions, String nom)
+	public Equipe(Inscriptions inscriptions, String nom,boolean save)
 	{
 		super(inscriptions, nom);
+		if(save)
+		{
+			bdd.save(this);
+		}
+	}
+	
+	/**
+	 * Retourne la valeur de suppression de Equipe.
+	 */
+	
+	public boolean getIsDelete() {
+		return isDelete;
 	}
 
 	/**
-	 * Retourne l'ensemble des personnes formant l'Ã©quipe.
+	 * Modifie la valeur de suppression de Equipe.
+	 */
+	
+	public void setIsDelete(boolean isDelete) {
+		this.isDelete = isDelete;
+	}
+
+	/**
+	 * Retourne l'id de l'équipe.
+	 */
+	
+	/**
+	 * Modifie l'id de l'équipe.
+	 */
+
+	
+	/**
+	 * Retourne l'ensemble des personnes formant l'équipe.
 	 */
 	
 	public SortedSet<Personne> getMembres()
@@ -30,26 +65,34 @@ public class Equipe extends Candidat
 	}
 	
 	/**
-	 * Ajoute une personne dans l'Ã©quipe.
+	 * Ajoute une personne dans l'équipe.
 	 * @param membre
 	 * @return
 	 */
 
-	public boolean add(Personne membre)
+	public boolean add(Personne membre,boolean save)
 	{
 		membre.add(this);
+		if(save)
+		{
+			bdd.save(membre,this);
+		}
 		return membres.add(membre);
 	}
 
 	/**
-	 * Supprime une personne de l'Ã©quipe. 
+	 * Supprime une personne de l'équipe. 
 	 * @param membre
 	 * @return
 	 */
 	
-	public boolean remove(Personne membre)
+	public boolean remove(Personne membre,boolean save)
 	{
 		membre.remove(this);
+		if(save)
+		{
+			bdd.delete(membre, this);
+		}
 		return membres.remove(membre);
 	}
 
@@ -57,6 +100,10 @@ public class Equipe extends Candidat
 	public void delete()
 	{
 		super.delete();
+		for(Personne m : membres)
+		{
+			m.remove(this);
+		}
 	}
 	
 	@Override
