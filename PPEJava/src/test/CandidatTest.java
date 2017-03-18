@@ -10,7 +10,7 @@ public class CandidatTest {
 	
 	
 	Inscriptions i = Inscriptions.getInscriptions();
-	Personne c = i.createPersonne ("nomtest", "prenomtest", "testemail");
+	Personne c = i.createPersonne ("nomtest", "prenomtest", "testemail",true);
 	Set<Candidat>c1 = i.getCandidats();
 
 	@Test
@@ -46,7 +46,7 @@ public class CandidatTest {
 
 	@Test
 	public void testDelete() {
-		Personne cc = i.createPersonne ("nomtest", "prenomtest", "testemail");
+		Personne cc = i.createPersonne ("nomtest", "prenomtest", "testemail",true);
 		
 		Set<Candidat>c2 = i.getCandidats();
 		

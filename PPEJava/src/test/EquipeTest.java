@@ -9,7 +9,7 @@ import inscriptions.Personne;
 
 public class EquipeTest {
 	Inscriptions i = Inscriptions.getInscriptions();
-	Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail");
+	Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",true);
 	
 	@Test
 	public void testDelete() {
