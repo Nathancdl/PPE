@@ -151,15 +151,15 @@ public class Connect implements Serializable
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection cn = DriverManager.getConnection(url, login,password);
 				Statement st = cn.createStatement();	
-				String requete ="Insert into personne(prenom,mail) values ('"+personne.getPrenom()+"','"+personne.getMail()+"')";
+				String requete ="Insert into personne(prenom,mail,nom) values ('"+personne.getPrenom()+"','"+personne.getMail()+"','"+personne.getNom()+"')";
 				st.executeUpdate(requete);	
-				String requete2 ="Select id_personne From personne Where prenom ='" + personne.getPrenom() + "' And mail = '" + personne.getMail() + "' And deleted_at IS NULL";
+				String requete2 ="Select id_personne From personne Where prenom ='" + personne.getPrenom() + "' And mail = '" + personne.getMail() + "'";
 				ResultSet result = st.executeQuery(requete2);
 				int idUser2 = 0;
 				while (result.next()) {
 				    idUser2 = result.getInt( "id_personne" );
 				}
-				String requete3 ="Insert into candidat(id_personne,nom) values ('"+idUser2+"','"+personne.getNom()+"')";
+				String requete3 ="Insert into candidat(id_candidat,nom_candidat) values ('"+idUser2+"','"+personne.getNom()+"')";
 				st.executeUpdate(requete3);
 				
 				int idCandidat=0;

@@ -1,5 +1,5 @@
 package test;
-
+import java.time.LocalDate;
 import static org.junit.Assert.*;
 import java.util.Set;
 
@@ -9,10 +9,10 @@ import inscriptions.*;
 public class InscriptionsTest {
 
 	Inscriptions i = Inscriptions.getInscriptions();
-	Competition cEquipe = i.createCompetition("CompetEquipeTest", null, true);
-	Competition c = i.createCompetition("CompetSoloTest", null, false);
-	Equipe equipeTest = i.createEquipe("EquipeTest");
-	Personne personneTest = i.createPersonne("TEST", "test", "tTEST@gmail.com");
+	Competition cEquipe = i.createCompetition("CompetEquipeTest",LocalDate.now().plusDays(10), true, true);
+	Competition c = i.createCompetition("CompetSoloTest",LocalDate.now().plusDays(10), false, true);
+	Equipe equipeTest = i.createEquipe("EquipeTest",true);
+	Personne personneTest = i.createPersonne("TEST", "test", "tTEST@gmail.com",true);
 	
 	@Test
 	public void testGetCompetitions() {
@@ -29,21 +29,21 @@ public class InscriptionsTest {
 
 	@Test
 	public void testCreateCompetition() {
-		Competition competitionTest2 = i.createCompetition("Test", null, false);
+		Competition competitionTest2 = i.createCompetition("Test",LocalDate.now().plusDays(10), false, false);
 		Set <Competition> setCompetitionTest = i.getCompetitions();
 		assertTrue(setCompetitionTest.contains(competitionTest2));
 	}
 
 	@Test
 	public void testCreatePersonne() {
-		Personne personneTest2 = i.createPersonne("", "", "");
+		Personne personneTest2 = i.createPersonne("", "", "",false);
 		Set<Candidat>setPersonneTest2 = i.getCandidats();
 		assertTrue(setPersonneTest2.contains(personneTest2));
 	}
 
 	@Test
 	public void testCreateEquipe() {
-		Equipe equipeTest2 = i.createEquipe("");
+		Equipe equipeTest2 = i.createEquipe("",false);
 		Set<Candidat>setEquipeTest2 = i.getCandidats();
 		assertTrue(setEquipeTest2.contains(equipeTest2));
 	}
@@ -65,9 +65,11 @@ public class InscriptionsTest {
 
 	@Test
 	public void testGetInscriptions() {
+		Inscriptions i = Inscriptions.getInscriptions();
 		assertEquals(i, Inscriptions.getInscriptions());
 	}
 
+	
 	/**
 	 *@Test
 	 *public void testSauvegarder() {
@@ -75,6 +77,8 @@ public class InscriptionsTest {
 	 *}
 	 *
 	 */
+	
+
 
 
 }

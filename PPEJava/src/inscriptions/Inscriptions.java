@@ -185,22 +185,19 @@ public class Inscriptions implements Serializable
 	public static Inscriptions getInscriptions()
 	{
 		
-//		if (inscriptions == null)
-//		{
-//			inscriptions = readObject();
-//			if (inscriptions == null)
-//				inscriptions = new Inscriptions();
-//		}
+		if (inscriptions == null)
+		{
+			inscriptions = readObject();
+			if (inscriptions == null)
+				inscriptions = new Inscriptions();
+		}
+		
+		
 		//TODO : 
-		Connect bdd = new Connect();
-		inscriptions= new Inscriptions();
-		bdd.selectPersonne(inscriptions);
-		System.out.println("Personne récupéré...");
-		bdd.selectEquipe(inscriptions);
-		System.out.println("Equipe récupéré...");
-		bdd.selectCompetitions(inscriptions);
-		System.out.println("Competition récupéré...");
-		bdd.selecttoEquipe(inscriptions);
+	//	
+		//
+		//inscriptions= new Inscriptions();
+
 		return inscriptions;
 	}
 
@@ -292,7 +289,9 @@ public class Inscriptions implements Serializable
 		
 //        MenuPrincipal menu = new MenuPrincipal();
 //        menu.start();
-		MainMenu menu = new MainMenu();
+		Connect bdd = new Connect();
+		 MainMenu menu = new MainMenu();
+	      menu.start();
 
 //		try
 //		{
