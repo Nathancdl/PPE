@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
-import presist.BDD;
+import bdd.Connect;;
 
 /**
  * Candidat à un événement sportif, soit une personne physique, soit une équipe.
@@ -19,7 +19,7 @@ public abstract class Candidat implements Comparable<Candidat>, Serializable
 	private String nom;
 	private int id;
 	boolean isDelete;
-	private BDD bdd = new BDD();
+	Connect bdd = new Connect();
 
 	private Set<Competition> competitions;
 	

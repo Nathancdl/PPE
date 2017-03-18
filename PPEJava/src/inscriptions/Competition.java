@@ -6,7 +6,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
-import presist.BDD;
+import bdd.Connect;;
 
 /**
  * Représente une compétition, c'est-à-dire un ensemble de candidats 
@@ -23,7 +23,7 @@ public class Competition implements Comparable<Competition>, Serializable
 	private Set<Candidat> candidats;
 	private LocalDate dateCloture;
 	private boolean enEquipe = false;
-	BDD bdd = new BDD();
+	Connect bdd = new Connect();
 	boolean isDelete;
 	
 	Competition(Inscriptions inscriptions, String nom, LocalDate dateCloture, boolean enEquipe, boolean save)

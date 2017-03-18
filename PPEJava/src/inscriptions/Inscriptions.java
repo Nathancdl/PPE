@@ -11,9 +11,8 @@ import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import Presentation.Fenetre;
 import Presentation.MainMenu;
-import presist.BDD;
+import bdd.Connect;
 
 /**
  * Point d'entrÃ©e dans l'application, un seul objet de type Inscription
@@ -193,7 +192,7 @@ public class Inscriptions implements Serializable
 //				inscriptions = new Inscriptions();
 //		}
 		//TODO : 
-		BDD bdd = new BDD();
+		Connect bdd = new Connect();
 		inscriptions= new Inscriptions();
 		bdd.selectPersonne(inscriptions);
 		System.out.println("Personne récupéré...");
@@ -201,7 +200,7 @@ public class Inscriptions implements Serializable
 		System.out.println("Equipe récupéré...");
 		bdd.selectCompetitions(inscriptions);
 		System.out.println("Competition récupéré...");
-		bdd.selectAttrEquipe(inscriptions);
+		bdd.selecttoEquipe(inscriptions);
 		return inscriptions;
 	}
 
@@ -293,8 +292,8 @@ public class Inscriptions implements Serializable
 		
 //        MenuPrincipal menu = new MenuPrincipal();
 //        menu.start();
-        Fenetre fenetre = new Fenetre();
-        fenetre.setVisible(true);
+		MainMenu menu = new MainMenu();
+
 //		try
 //		{
 //			inscriptions.sauvegarder();

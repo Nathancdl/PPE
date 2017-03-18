@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Set;
 import java.util.TreeSet;
 
-import presist.*;
+import bdd.Connect;;
 
 /**
  * Représente une personne physique pouvant s'inscrire à une compétition.
@@ -17,7 +17,7 @@ public class Personne extends Candidat
 	private Set<Equipe> equipes;
 	boolean isDelete;
 
-	private BDD bdd = new BDD();
+	Connect bdd = new Connect();
 	
 	public Personne(Inscriptions inscriptions, String nom, String prenom, String mail,boolean save)
 	{

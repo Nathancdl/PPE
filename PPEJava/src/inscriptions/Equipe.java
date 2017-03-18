@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
-import presist.BDD;
+import bdd.Connect;;
 
 /**
  * Représente une Equipe. C'est-à-dire un ensemble de personnes pouvant 
@@ -18,7 +18,7 @@ public class Equipe extends Candidat
 	private SortedSet<Personne> membres = new TreeSet<>();
 	private int id;
 
-	BDD bdd = new BDD();
+	Connect bdd = new Connect();
 	boolean isDelete;
 	
 	public Equipe(Inscriptions inscriptions, String nom,boolean save)
