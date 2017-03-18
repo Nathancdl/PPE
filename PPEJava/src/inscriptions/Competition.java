@@ -83,7 +83,7 @@ public class Competition implements Comparable<Competition>, Serializable
 	
 	public boolean inscriptionsOuvertes()
 	{
-		return this.getDateCloture().isBefore(LocalDate.now());
+		return this.getDateCloture().isAfter(LocalDate.now());
 	}
 	
 	/**
