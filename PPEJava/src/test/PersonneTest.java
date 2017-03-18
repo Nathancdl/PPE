@@ -9,14 +9,15 @@ import inscriptions.*;
 
 public class PersonneTest {
 	
-	Inscriptions i = Inscriptions.getInscriptions();
-	Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail");
+
 	
 
 	@Test
 	public void testDelete() {
-		Equipe e = i.createEquipe("equipe test");
-		e.add(p);
+		Inscriptions i = Inscriptions.getInscriptions();
+		Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",false);
+		Equipe e = i.createEquipe("equipe test",false);
+		e.add(p,false);
 		Set<Equipe> setEquipesTest = p.getEquipes();
 		p.delete();
 		assertFalse(setEquipesTest.contains(p));
@@ -24,30 +25,40 @@ public class PersonneTest {
 
 	@Test
 	public void testGetPrenom() {
+		Inscriptions i = Inscriptions.getInscriptions();
+		Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",false);
 		assertEquals("prenomtest", p.getPrenom());
 	}
 
 	@Test
 	public void testSetPrenom() {
+		Inscriptions i = Inscriptions.getInscriptions();
+		Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",false);
 		p.setPrenom("test1");
 		assertEquals("test1", p.getPrenom());
 	}
 
 	@Test
 	public void testGetMail() {
+		Inscriptions i = Inscriptions.getInscriptions();
+		Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",false);
 		assertEquals("testemail", p.getMail());
 	}
 
 	@Test
 	public void testSetMail() {
-		p.setMail("testemail");
-		assertEquals("testemail", p.getMail());
+		Inscriptions i = Inscriptions.getInscriptions();
+		Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",false);
+		p.setMail("mail");
+		assertEquals("mail", p.getMail());
 	}
 
 	@Test
 	public void testGetEquipes() {
-		Equipe e = i.createEquipe("equipe test");
-		e.add(p);
+		Inscriptions i = Inscriptions.getInscriptions();
+		Personne p = i.createPersonne ("nomtest", "prenomtest", "testemail",false);
+		Equipe e = i.createEquipe("equipe test",false);
+		e.add(p,false);
 		Set<Equipe> setEquipesTest = p.getEquipes();
 		assertTrue(setEquipesTest.contains(e));
 	}
