@@ -9,10 +9,10 @@ import inscriptions.*;
 public class InscriptionsTest {
 
 	Inscriptions i = Inscriptions.getInscriptions();
-	Competition cEquipe = i.createCompetition("CompetEquipeTest",LocalDate.now().plusDays(10), true, true);
-	Competition c = i.createCompetition("CompetSoloTest",LocalDate.now().plusDays(10), false, true);
+	Competition cEquipe = i.createCompetition("CompetEquipeTest",LocalDate.now().plusDays(10), true, false);
+	Competition c = i.createCompetition("CompetSoloTest",LocalDate.now().plusDays(10), false, false);
 	Equipe equipeTest = i.createEquipe("EquipeTest",true);
-	Personne personneTest = i.createPersonne("TEST", "test", "tTEST@gmail.com",true);
+	Personne personneTest = i.createPersonne("TEST", "test", "mail",false);
 	
 	@Test
 	public void testGetCompetitions() {
