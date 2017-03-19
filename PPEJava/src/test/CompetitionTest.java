@@ -20,7 +20,7 @@ public class CompetitionTest {
 	@Test
 	public void testSetNom() {
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("bouloux",LocalDate.now().plusDays(10), true, true);
+		Competition c = i.createCompetition("bouloux",LocalDate.now().plusDays(10), true, false);
 		c.setNom("tournoi du tournoi");
 		assertEquals("tournoi du tournoi", c.getNom());
 	}
@@ -29,14 +29,14 @@ public class CompetitionTest {
 	public void testInscriptionsOuvertes() {
 		
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("tourno",LocalDate.now().plusDays(10), true, true);
+		Competition c = i.createCompetition("tourno",LocalDate.now().plusDays(10), true, false);
 		assertEquals(true,c.inscriptionsOuvertes());
 	}
 
 	@Test
 	public void testGetDateCloture() {
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("tournoi de bang",LocalDate.now().plusDays(10), true, true);
+		Competition c = i.createCompetition("tournoi de bang",LocalDate.now().plusDays(10), true, false);
 		assertEquals(LocalDate.now().plusDays(10),c.getDateCloture());
 	}
 
@@ -44,7 +44,7 @@ public class CompetitionTest {
 	public void testEstEnEquipe() {
 		
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("tournoi de bong",LocalDate.now().plusDays(10), true, true);
+		Competition c = i.createCompetition("tournoi de bong",LocalDate.now().plusDays(10), true, false);
 		assertEquals(true,c.estEnEquipe());
 		
 	}
@@ -52,7 +52,7 @@ public class CompetitionTest {
 	@Test
 	public void testSetDateCloture() throws DateInvalide {
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("tournoi de foule",LocalDate.now(), true, true);
+		Competition c = i.createCompetition("tournoi de foule",LocalDate.now(), true, false);
 		c.setDateCloture(LocalDate.now().plusDays(10));
 		assertEquals(LocalDate.now().plusDays(10),c.getDateCloture());
 	}
@@ -84,7 +84,7 @@ public class CompetitionTest {
 	public void testAddEquipe() throws DateInvalide {
 		
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("test",LocalDate.now().plusDays(10),true, true);
+		Competition c = i.createCompetition("test",LocalDate.now().plusDays(10),true, false);
 		
 		Personne p = i.createPersonne("test", "prenom", "mail",true);
 		Personne pp = i.createPersonne("test", "prenom", "mail",true);
@@ -112,7 +112,7 @@ public class CompetitionTest {
 	@Test
 	public void testRemove() throws DateInvalide {
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("test", LocalDate.now().plusDays(10),false,true);
+		Competition c = i.createCompetition("test", LocalDate.now().plusDays(10),false,false);
 		Personne P = i.createPersonne("nom", "prenom", "mail",true);
 		Personne P2 = i.createPersonne("nom", "prenom", "mail",true);
 		c.add(P);
@@ -126,7 +126,7 @@ public class CompetitionTest {
 	@Test
 	public void testDelete() {
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("Compet", LocalDate.now().plusDays(10), false,true);
+		Competition c = i.createCompetition("Compet", LocalDate.now().plusDays(10), false,false);
 		int size = i.getCompetitions().size();
 		c.delete();
 		assertEquals(size-1,i.getCompetitions().size());
@@ -135,8 +135,8 @@ public class CompetitionTest {
 	@Test
 	public void testCompareTo() {
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("Compet", LocalDate.now().plusDays(10), false, true);
-		Competition compet2 = i.createCompetition("Compet", LocalDate.now().plusDays(10), false, true);
+		Competition c = i.createCompetition("Compet", LocalDate.now().plusDays(10), false, false);
+		Competition compet2 = i.createCompetition("Compet", LocalDate.now().plusDays(10), false, false);
 
 		assertEquals(0,c.compareTo(compet2));
 	}
@@ -145,6 +145,6 @@ public class CompetitionTest {
 	public void testToString() {
 		
 		Inscriptions i = Inscriptions.getInscriptions();
-		Competition c = i.createCompetition("compet", LocalDate.now().plusDays(10), false, true);
+		Competition c = i.createCompetition("compet", LocalDate.now().plusDays(10), false, false);
 		assertNotNull(c.toString());
 	}}

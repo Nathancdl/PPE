@@ -39,6 +39,29 @@ public class Connect implements Serializable
 		}	
 	}
 	
+	public static void afficheP()
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
+			Connection cn = DriverManager.getConnection(url, login,password);
+			Statement st = cn.createStatement();	
+			String requete ="Select * From personne where personne.id_personne = id_personne";
+			ResultSet result;
+			result = st.executeQuery(requete);
+			while ( result.next() ) {
+				System.out.println("ID : "+result.getInt("id_personne")  +" Prenom : "+  result.getString("prenom") + " Nom : "+  result.getString("nom") + "");
+			}
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
 	public void selectEquipe(Inscriptions inscription)
 	{
 		try {

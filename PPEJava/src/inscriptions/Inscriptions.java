@@ -75,6 +75,7 @@ public class Inscriptions implements Serializable
 	
 	public SortedSet<Personne> getPersonnes(boolean valide)
 	{
+		Connect.afficheP();
 		SortedSet<Personne> personnes = new TreeSet<>();
 		for (Candidat c : getCandidats())
 			if (c instanceof Personne && (!valide || c.getIsDelete()))
@@ -286,10 +287,6 @@ public class Inscriptions implements Serializable
 	
 	public static void main(String[] args)
 	{
-		
-//        MenuPrincipal menu = new MenuPrincipal();
-//        menu.start();
-		Connect bdd = new Connect();
 		 MainMenu menu = new MainMenu();
 	      menu.start();
 
