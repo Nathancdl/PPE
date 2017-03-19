@@ -207,16 +207,23 @@ public class Connect implements Serializable
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
-			String requete ="Insert into equipe(id_equipe) values (NULL)";
-			st.executeUpdate(requete);	
-			String requete2 ="Select id_equipe From equipe";
-			ResultSet result = st.executeQuery(requete2);
-			int idequipe = 0;
-			while (result.next()) {
-			    idequipe = result.getInt( "id_equipe" );
-			}
-			String requete3 ="Insert into candidat(id_equipe,nom) values ('"+idequipe+"','"+equipe.getNom()+"')";
-			st.executeUpdate(requete3);
+
+
+			String requete3 ="Insert into candidat(nom_candidat) values ('"+equipe.getNom()+"')";
+
+			st.executeUpdate(requete3);	
+			
+			  long idequipe = st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
+	            ResultSet rs= st.getGeneratedKeys();
+	            if (rs.next()) 
+	            {
+	              System.out.println("Last Inserted ID = "+rs.getLong(1));
+	            }    
+	            
+			String requete ="Insert into equipe(id_equipe,nom) values ('"+rs.getLong(1)+"','"+equipe.getNom()+"')";
+			
+
+			st.executeUpdate(requete);
 			int idCandidat=0;
 			String requete4="SELECT id_candidat FROM candidat";
 			ResultSet result2= st.executeQuery(requete4);
