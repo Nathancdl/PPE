@@ -11,7 +11,7 @@ public class AfficheUser extends JFrame implements ActionListener {
 	private JPanel pano;
 	
 	public AfficheUser(){
-		setSize(300, 100);
+		
 		setTitle("Boutons");
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		pano = new JPanel(new BorderLayout(40,50));

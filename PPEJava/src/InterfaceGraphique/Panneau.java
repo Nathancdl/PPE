@@ -26,9 +26,10 @@ public class Panneau extends JPanel
 		Font police = new Font("Tahoma", Font.BOLD, 18);
 		titre.setFont(police);
 		titre.setHorizontalAlignment(JLabel.CENTER);
-		
 		tab.addTab("Gestion de compétition", new JPanel());
-		tab.setBackground(Color.CYAN);
+		tab.addTab("Gestion de d'équipe", new JPanel());
+		tab.addTab("Gestion de personne", new JPanel());
+		tab.setBackground(Color.WHITE);
 		tab.setFont(police);
 		this.add(tab,BorderLayout.CENTER);
 	}

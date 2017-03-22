@@ -2,9 +2,13 @@ package InterfaceGraphique;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
+import java.net.URI;
 
 import javax.swing.*;
 
@@ -22,6 +26,7 @@ public class Fenetre extends JFrame
 	private JMenuItem item3 = new JMenuItem("Lancer");
 	private JMenuItem item4 = new JMenuItem("Arrêter");
 	private JMenuItem item5 = new JMenuItem("Aide");
+	private JMenuItem item6 = new JMenuItem("MCD");
 	
 	
 	public static final int WIDTH = 800;
@@ -43,6 +48,8 @@ public class Fenetre extends JFrame
 		menuEdition.addSeparator();
 		menuEdition.add(item4);
 		menuAide.add(item5);
+		menuAide.addSeparator();
+		menuAide.add(item6);
 		menuBar.add(menuFichier);
 		menuBar.add(menuEdition);
 		menuBar.add(menuAide);
@@ -62,10 +69,31 @@ public class Fenetre extends JFrame
 			}
 		});
 		
-		item3.addActionListener( new ActionListener(){
+		item5.addActionListener( new ActionListener(){
 			public void actionPerformed( ActionEvent e )
 			{
-				
+				URI uri = URI.create("https://nathancaudeli.000webhostapp.com/index.php?page=java.php");
+				try {
+					Desktop.getDesktop().browse(uri);
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+
+			}
+		});
+		
+		item6.addActionListener( new ActionListener(){
+			public void actionPerformed( ActionEvent e )
+			{
+				Desktop d = Desktop.getDesktop();
+				try {
+					d.open(new File("mcd.PNG"));
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+
 			}
 		});
 		
