@@ -17,8 +17,8 @@ public class Accueil {
 	
 	public static void main(String[] args)
 	{
-		new Accueil();
 		new AfficheUser();
+		new AccueilMenu();
 	}
 	
 	JFrame fenetre;
