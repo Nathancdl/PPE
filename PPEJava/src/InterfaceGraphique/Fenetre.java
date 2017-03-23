@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -34,7 +36,8 @@ public class Fenetre extends JFrame
 	
 	public Fenetre()
 	{   
-		
+		 Image icone = Toolkit.getDefaultToolkit().getImage(Fenetre.class.getResource("ico.png"));
+		 this.setIconImage(icone);
 	    this.setTitle("Gestionnaire de compétition");
 	    this.setSize(WIDTH, HEIGHT);
 	    this.setResizable(false);
@@ -96,7 +99,7 @@ public class Fenetre extends JFrame
 
 			}
 		});
-		
+	
 		 setJMenuBar(menuBar);
 		 this.setVisible(true);
 	 }
