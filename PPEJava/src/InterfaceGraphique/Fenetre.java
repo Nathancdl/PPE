@@ -36,8 +36,8 @@ public class Fenetre extends JFrame
 	
 	public Fenetre()
 	{   
-		 Image icone = Toolkit.getDefaultToolkit().getImage(Fenetre.class.getResource("./ico.png"));
-		 this.setIconImage(icone);
+		Image icone = Toolkit.getDefaultToolkit().getImage(Fenetre.class.getResource("ico.png"));
+		this.setIconImage(icone);
 	    this.setTitle("Gestionnaire de compétition");
 	    this.setSize(WIDTH, HEIGHT);
 	    this.setResizable(false);
