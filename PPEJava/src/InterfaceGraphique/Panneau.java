@@ -32,7 +32,7 @@ public class Panneau extends JPanel
 		titre.setHorizontalAlignment(JLabel.CENTER);
 		tab.addTab("Gestion de compétition", new JPanel());
 		tab.addTab("Gestion de d'équipe", new JPanel());
-		tab.addTab("Gestion de personne", new JPanel());
+		tab.addTab("Gestion de personne", new PanneauUser());
 		tab.setBackground(Color.WHITE);
 		tab.setFont(police);
 		this.add(tab,BorderLayout.CENTER);
