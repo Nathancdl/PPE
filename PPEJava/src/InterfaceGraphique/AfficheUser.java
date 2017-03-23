@@ -5,6 +5,10 @@ import javax.swing.*;
 
 
 public class AfficheUser extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8275514385433118635L;
 	private String mot;
 	private JButton affiche, efface;
 	private JLabel affichage;

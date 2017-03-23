@@ -213,7 +213,7 @@ public class Connect implements Serializable
 
 			st.executeUpdate(requete3);	
 			
-			  long idequipe = st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
+			  //long idequipe = st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
 	            ResultSet rs= st.getGeneratedKeys();
 	            if (rs.next()) 
 	            {

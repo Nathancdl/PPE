@@ -14,6 +14,10 @@ import inscriptions.Inscriptions;
 
 public class Panneau extends JPanel
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4348677658643276143L;
 	private JLabel titre = new JLabel("Application de gestion de compétition");
 	private static Inscriptions inscriptions;
 	JTabbedPane tab = new JTabbedPane();

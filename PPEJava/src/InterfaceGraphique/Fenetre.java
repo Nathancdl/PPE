@@ -1,9 +1,7 @@
 package InterfaceGraphique;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
+
 import java.awt.Desktop;
-import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
@@ -16,6 +14,11 @@ import javax.swing.*;
 
 public class Fenetre extends JFrame
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5626270346585492592L;
+
 	private Panneau panneau = new Panneau();
 
 	private JMenuBar menuBar = new JMenuBar();
