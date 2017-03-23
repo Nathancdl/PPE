@@ -23,7 +23,7 @@ import inscriptions.Equipe;
 import inscriptions.Inscriptions;
 import inscriptions.Personne;
 
-public class PanneauUser extends JPanel{
+public class PanneauEquipe extends JPanel{
 
 	/**
 	 * 
@@ -56,9 +56,9 @@ public class PanneauUser extends JPanel{
 	
 	private Dimension tailleEdit = new Dimension(Fenetre.WIDTH * 80 / 100, Fenetre.HEIGHT * 12 / 100 );
 	
-	public PanneauUser() 
+	public PanneauEquipe() 
 	{
-		JLabel label = new JLabel("Panneau de Candidat");
+		JLabel label = new JLabel("Panneau des Equipe");
 		 
 		this.add(label);
 		// Instantiation

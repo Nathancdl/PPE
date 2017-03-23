@@ -1,3 +1,4 @@
+
 package InterfaceGraphique;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -23,7 +24,7 @@ import inscriptions.Equipe;
 import inscriptions.Inscriptions;
 import inscriptions.Personne;
 
-public class PanneauUser extends JPanel{
+public class PanneauCompetition extends JPanel{
 
 	/**
 	 * 
@@ -56,12 +57,13 @@ public class PanneauUser extends JPanel{
 	
 	private Dimension tailleEdit = new Dimension(Fenetre.WIDTH * 80 / 100, Fenetre.HEIGHT * 12 / 100 );
 	
-	public PanneauUser() 
+	public PanneauCompetition() 
 	{
-		JLabel label = new JLabel("Panneau de Candidat");
+
+		// Instantiation
+		JLabel label = new JLabel("Panneau de Compétition");
 		 
 		this.add(label);
-		// Instantiation
 		
 		boutonAjoute.setEnabled(false);
 		boutonEdite.setEnabled(false);
