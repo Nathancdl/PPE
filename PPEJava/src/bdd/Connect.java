@@ -213,14 +213,15 @@ public class Connect implements Serializable
 
 			st.executeUpdate(requete3);	
 			
-			  //long idequipe = st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
+			  st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
+
 	            ResultSet rs= st.getGeneratedKeys();
 	            if (rs.next()) 
 	            {
 	              System.out.println("Last Inserted ID = "+rs.getLong(1));
 	            }    
 	            
-			String requete ="Insert into equipe(id_equipe,nom) values ('"+rs.getLong(1)+"','"+equipe.getNom()+"')";
+			String requete ="Insert into equipe(id_equipe,nom_equipe) values ('"+rs.getLong(1)+"','"+equipe.getNom()+"')";
 			
 
 			st.executeUpdate(requete);
@@ -249,7 +250,7 @@ public class Connect implements Serializable
 			
 			int equipe = competition.estEnEquipe() ? 1 : 0;
 			
-			String requete ="Insert into competition(date,nom,enequipe) values ('"+competition.getDateCloture()+"','"+competition.getNom()+"','"+equipe+"')";
+			String requete ="Insert into competition(date_fin,nom_competition,enequipe) values ('"+competition.getDateCloture()+"','"+competition.getNom()+"','"+equipe+"')";
 			st.executeUpdate(requete);
 			
 			int idCompetition=0;
