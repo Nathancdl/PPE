@@ -1,5 +1,6 @@
 
 package InterfaceGraphique;
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -15,6 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JSeparator;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -98,6 +100,5 @@ public class PanneauCompetition extends JPanel{
 		panelAfficherPersonne.setPreferredSize(tailleEdit);
 		this.add(panelAfficherPersonne);
 	}
-	
 
 }
