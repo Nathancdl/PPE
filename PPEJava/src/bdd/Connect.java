@@ -33,9 +33,9 @@ public class Connect implements Serializable
 			}
 			
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}	
 	}
 	
@@ -56,9 +56,9 @@ public class Connect implements Serializable
 			}
 			
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}	
 	}
 	
@@ -66,6 +66,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From equipe e,candidat c WHERE e.id_equipe = c.id_candidat";
@@ -77,9 +80,9 @@ public class Connect implements Serializable
 			}
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}	
 	}
 	
@@ -87,6 +90,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From competition";
@@ -98,9 +104,9 @@ public class Connect implements Serializable
 			}
 
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}	
 	}
 	
@@ -108,6 +114,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From toequipe a,candidat c WHERE a.id_equipe= c.id_candidat";
@@ -130,9 +139,9 @@ public class Connect implements Serializable
 				}
 			}
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 	
@@ -140,6 +149,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From attcompetition a,candidat c WHERE a.id_candidat= c.id_candidat";
@@ -162,9 +174,9 @@ public class Connect implements Serializable
 				}
 			}
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 	
@@ -172,6 +184,9 @@ public class Connect implements Serializable
 	{	
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
+				String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+				String login = "root";
+				String password = "";
 				Connection cn = DriverManager.getConnection(url, login,password);
 				Statement st = cn.createStatement();	
 				String requete ="Insert into personne(prenom_personne,mail,nom_personne) values ('"+personne.getPrenom()+"','"+personne.getMail()+"','"+personne.getNom()+"')";
@@ -195,9 +210,9 @@ public class Connect implements Serializable
 				personne.setId(idCandidat);
 				
 			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 			} catch (SQLException e) {
-				e.printStackTrace();
+				// e.printStackTrace();
 			}
 				
 	}
@@ -205,13 +220,14 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 
 
 			String requete3 ="Insert into candidat(nom_candidat) values ('"+equipe.getNom()+"')";
-
-			st.executeUpdate(requete3);	
 			
 			  st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
 
@@ -235,9 +251,9 @@ public class Connect implements Serializable
 			equipe.setId(idCandidat);
 			
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 				
 	}
@@ -245,6 +261,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			
@@ -263,9 +282,9 @@ public class Connect implements Serializable
 			competition.setId(idCompetition);
 			
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 				
 	}
@@ -273,14 +292,17 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();		
 			String requete ="Insert into toequipe(id_personne,id_equipe) values ('"+personne.getId()+"','"+equipe.getId()+"')";
 			st.executeUpdate(requete);		
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 				
 	}
@@ -288,14 +310,17 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();		
 			String requete ="Insert into tocompetition(id_candidat,id_competition) values ("+candidat.getId()+","+competition.getId()+")";
 			st.executeUpdate(requete);		
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 				
 	}
@@ -305,14 +330,17 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="UPDATE personne SET deleted_at = NOW() WHERE id_candidat = "+personne.getId();
 			st.executeUpdate(requete);
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		
 	}
@@ -320,14 +348,17 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="UPDATE equipe SET deleted_at = NOW() WHERE id_candidat = "+equipe.getId();
 			st.executeUpdate(requete);	
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		
 	}
@@ -335,14 +366,17 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="UPDATE candidat SET deleted_at = NOW() WHERE id_candidat = "+candidat.getId();
 			st.executeUpdate(requete);	
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		
 	}
@@ -351,14 +385,17 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="UPDATE competition SET deleted_at = NOW() WHERE id_candidat = "+competition.getId();
 			st.executeUpdate(requete);	
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 	
@@ -366,14 +403,17 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="DELETE FROM toequipe WHERE id_personne="+personne.getId()+" AND id_equipe="+equipe.getId();
 			st.executeUpdate(requete);	
 		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 	}
 }
