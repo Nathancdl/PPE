@@ -79,7 +79,7 @@ public class PanneauUser extends JPanel{
 		
 		panelAfficherPersonne.add(Box.createHorizontalStrut(40));
 		
-		panelAfficherPersonne.add(new JLabel("Prénom : "));
+		panelAfficherPersonne.add(new JLabel("PrÃ©nom : "));
 		prenomField.setPreferredSize(new Dimension(130, 20));
 		panelAfficherPersonne.add(prenomField);
 		
