@@ -28,7 +28,7 @@ public class Connect implements Serializable
 			ResultSet result;
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
-			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),false);
+			    Personne personne = inscription.createPersonne(result.getString( "nom_personne" ),result.getString( "prenom_personne" ), result.getString( "mail" ),false);
 			    personne.setId(result.getInt("id_personne"));
 			}
 			
@@ -52,7 +52,7 @@ public class Connect implements Serializable
 			ResultSet result;
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
-				System.out.println("ID : "+result.getInt("id_personne")  +" Prenom : "+  result.getString("prenom") + " Nom : "+  result.getString("nom") + "");
+				System.out.println("ID : "+result.getInt("id_personne")  +" Prenom : "+  result.getString("prenom_personne") + " Nom : "+  result.getString("nom_personne") + "");
 			}
 			
 		} catch (ClassNotFoundException e) {
@@ -72,7 +72,7 @@ public class Connect implements Serializable
 			ResultSet result;
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
-			    Equipe equipe = inscription.createEquipe(result.getString( "nom"),false);
+			    Equipe equipe = inscription.createEquipe(result.getString("nom_equipe"),false);
 			    equipe.setId(result.getInt("id_candidat"));
 			}
 
@@ -94,7 +94,7 @@ public class Connect implements Serializable
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
 				LocalDate date = LocalDate.now().plusMonths((long) 2.0);
-			    inscription.createCompetition(result.getString( "nom" ),date, (result.getInt("enequipe") == 1),false);
+			    inscription.createCompetition(result.getString( "nom_competition" ),date, (result.getInt("enequipe") == 1),false);
 			}
 
 		} catch (ClassNotFoundException e) {
@@ -174,9 +174,9 @@ public class Connect implements Serializable
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection cn = DriverManager.getConnection(url, login,password);
 				Statement st = cn.createStatement();	
-				String requete ="Insert into personne(prenom,mail,nom) values ('"+personne.getPrenom()+"','"+personne.getMail()+"','"+personne.getNom()+"')";
+				String requete ="Insert into personne(prenom_personne,mail,nom_personne) values ('"+personne.getPrenom()+"','"+personne.getMail()+"','"+personne.getNom()+"')";
 				st.executeUpdate(requete);	
-				String requete2 ="Select id_personne From personne Where prenom ='" + personne.getPrenom() + "' And mail = '" + personne.getMail() + "'";
+				String requete2 ="Select id_personne From personne Where prenom_personne ='" + personne.getPrenom() + "' And mail = '" + personne.getMail() + "'";
 				ResultSet result = st.executeQuery(requete2);
 				int idUser2 = 0;
 				while (result.next()) {
