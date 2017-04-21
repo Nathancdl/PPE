@@ -18,6 +18,9 @@ import java.sql.DriverManager;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.SpringLayout;
+import javax.swing.JTextField;
+import javax.swing.JLabel;
 
 
 public class PanneauTest extends JPanel {
@@ -26,20 +29,67 @@ public class PanneauTest extends JPanel {
 	private JTable table;
 	Connect bdd = new Connect();
 	private JPanel panelTest = new JPanel();
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
 	
 	public PanneauTest() {
-		JButton btnLoadTable = new JButton("Load user");
-		add(btnLoadTable);
+		SpringLayout springLayout = new SpringLayout();
+		setLayout(springLayout);
 		JScrollPane scrollPane = new JScrollPane();
+		springLayout.putConstraint(SpringLayout.NORTH, scrollPane, 48, SpringLayout.NORTH, this);
+		springLayout.putConstraint(SpringLayout.WEST, scrollPane, 38, SpringLayout.WEST, this);
 		add(scrollPane);
 		
 		table = new JTable();
 		scrollPane.setViewportView(table);
+		JButton btnLoadTable = new JButton("Load user");
+		scrollPane.setRowHeaderView(btnLoadTable);
+		
+		textField = new JTextField();
+		add(textField);
+		textField.setColumns(10);
+		
+		textField_1 = new JTextField();
+		springLayout.putConstraint(SpringLayout.SOUTH, textField_1, -468, SpringLayout.SOUTH, this);
+		springLayout.putConstraint(SpringLayout.EAST, textField_1, -10, SpringLayout.EAST, this);
+		springLayout.putConstraint(SpringLayout.NORTH, textField, 26, SpringLayout.SOUTH, textField_1);
+		springLayout.putConstraint(SpringLayout.EAST, textField, 0, SpringLayout.EAST, textField_1);
+		add(textField_1);
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		springLayout.putConstraint(SpringLayout.NORTH, textField_2, 22, SpringLayout.SOUTH, textField);
+		springLayout.putConstraint(SpringLayout.EAST, textField_2, 0, SpringLayout.EAST, textField);
+		add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel("Nom");
+		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel, 3, SpringLayout.NORTH, textField_1);
+		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -6, SpringLayout.WEST, textField_1);
+		add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Prenom");
+		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel_1, 3, SpringLayout.NORTH, textField_2);
+		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel_1, -6, SpringLayout.WEST, textField_2);
+		add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Mail");
+		springLayout.putConstraint(SpringLayout.NORTH, lblNewLabel_2, 3, SpringLayout.NORTH, textField);
+		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel_2, -6, SpringLayout.WEST, textField);
+		add(lblNewLabel_2);
+		
+		JButton btnNewButton = new JButton("Ajouter");
+		springLayout.putConstraint(SpringLayout.NORTH, btnNewButton, 27, SpringLayout.SOUTH, textField_2);
+		springLayout.putConstraint(SpringLayout.WEST, btnNewButton, 0, SpringLayout.WEST, textField);
+		add(btnNewButton);
 		
 		
 		btnLoadTable.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				
 				try {
+				
 					Class.forName("com.mysql.jdbc.Driver");
 					String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
 					String login = "root";
@@ -62,5 +112,4 @@ public class PanneauTest extends JPanel {
 		
 
 	}
-
 }

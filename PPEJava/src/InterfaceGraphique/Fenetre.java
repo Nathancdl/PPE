@@ -34,8 +34,8 @@ public class Fenetre extends JFrame
 	private JMenuItem item6 = new JMenuItem("MCD");
 	
 	
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 600;
+	public static final int WIDTH = 1000;
+	public static final int HEIGHT = 700;
 	
 	public Fenetre()
 	{   
