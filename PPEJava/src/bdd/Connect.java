@@ -39,7 +39,7 @@ public class Connect implements Serializable
 		}	
 	}
 	
-	public static void afficheP()
+	public static void afficheP(Inscriptions inscription)
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -52,7 +52,8 @@ public class Connect implements Serializable
 			ResultSet result;
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
-				System.out.println("ID : "+result.getInt("id_personne")  +" Prenom : "+  result.getString("prenom") + " Nom : "+  result.getString("nom") + "");
+			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),false);
+			    personne.setId(result.getInt("id_personne"));
 			}
 			
 		} catch (ClassNotFoundException e) {
@@ -62,10 +63,13 @@ public class Connect implements Serializable
 		}	
 	}
 	
-	public void selectEquipe(Inscriptions inscription)
+	public static void selectEquipe(Inscriptions inscription)
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From equipe e,candidat c WHERE e.id_equipe = c.id_candidat";
