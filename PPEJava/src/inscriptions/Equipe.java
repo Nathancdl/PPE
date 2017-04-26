@@ -16,7 +16,7 @@ public class Equipe extends Candidat
 {
 	private static final long serialVersionUID = 4147819927233466035L;
 	private SortedSet<Personne> membres = new TreeSet<>();
-	
+	private int id;
 
 	Connect bdd = new Connect();
 	boolean isDelete;

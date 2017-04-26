@@ -27,8 +27,8 @@ public class Inscriptions implements Serializable
 	private static Inscriptions inscriptions;
 	
 	private SortedSet<Competition> competitions = new TreeSet<>();
-	private SortedSet<Personne> personnes = new TreeSet<>();
 	private SortedSet<Candidat> candidats = new TreeSet<>();
+	private SortedSet<Personne> personnes = new TreeSet<>();
 	private SortedSet<Equipe> equipes = new TreeSet<>();
 	public Inscriptions()
 	{
@@ -59,10 +59,21 @@ public class Inscriptions implements Serializable
 	 * Retourne toutes les personnes.
 	 * @return
 	 */
+	
 
+	
+	/**
+	 * Retourne toutes les personnes non-supprimés.
+	 * @return
+	 */
 	
 	public SortedSet<Personne> getPersonnes()
 	{
+		Connect.afficheP(this);
+
+		for (Candidat c : getCandidats())
+			if (c instanceof Personne)
+					personnes.add((Personne)c);
 		return Collections.unmodifiableSortedSet(personnes);
 	}
 
@@ -73,7 +84,8 @@ public class Inscriptions implements Serializable
 	
 	public SortedSet<Equipe> getEquipes()
 	{
-		
+		Connect.selectEquipe(this);
+
 		for (Candidat c : getCandidats())
 			if (c instanceof Equipe)
 				equipes.add((Equipe)c);

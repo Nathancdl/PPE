@@ -7,7 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/InscriptionsSportives"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CoursJava"/>
 	<classpathentry kind="lib" path="/CoursJava/lib/commandLine.jar"/>
-	<classpathentry kind="lib" path="jgoodies-forms-1.8.0.jar" sourcepath="jgoodies-forms-1.8.0-sources.jar"/>
 	<classpathentry kind="lib" path="lib/rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

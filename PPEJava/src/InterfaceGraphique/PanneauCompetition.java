@@ -2,6 +2,7 @@
 package InterfaceGraphique;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,7 +44,7 @@ public class PanneauCompetition extends JPanel{
 	Competition selectCompetitionDispo;
 	
 	
-	private JPanel panelAfficherPersonne = new JPanel();
+//	private JPanel panelAfficherPersonne = new JPanel();
 	
 	
 	
@@ -77,6 +78,7 @@ public class PanneauCompetition extends JPanel{
 	}
 	private void setAfficherPersonne()
 	{
+		JPanel panelAfficherPersonne = new JPanel(); 
 		panelAfficherPersonne.add(new JLabel("Nom : "));
 		nomField.setPreferredSize(new Dimension(130, 20));
 		panelAfficherPersonne.add(nomField);
