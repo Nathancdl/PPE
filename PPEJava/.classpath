@@ -7,5 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/InscriptionsSportives"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CoursJava"/>
 	<classpathentry kind="lib" path="/CoursJava/lib/commandLine.jar"/>
+	<classpathentry kind="lib" path="lib/rs2xml.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

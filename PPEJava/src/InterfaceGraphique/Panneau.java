@@ -14,6 +14,10 @@ import inscriptions.Inscriptions;
 
 public class Panneau extends JPanel
 {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4348677658643276143L;
 	private JLabel titre = new JLabel("Application de gestion de compétition");
 	private static Inscriptions inscriptions;
 	JTabbedPane tab = new JTabbedPane();
@@ -23,12 +27,13 @@ public class Panneau extends JPanel
 	{
 		
 		this.setLayout(new BorderLayout());
-		Font police = new Font("Tahoma", Font.BOLD, 18);
+		Font police = new Font("Tahoma", Font.ITALIC, 18);
 		titre.setFont(police);
 		titre.setHorizontalAlignment(JLabel.CENTER);
-		tab.addTab("Gestion de compétition", new JPanel());
-		tab.addTab("Gestion de d'équipe", new JPanel());
-		tab.addTab("Gestion de personne", new JPanel());
+		tab.addTab("Accueil", new Bienvenu());
+		tab.addTab("Gestion de compétition", new PanneauTestCompet());
+		tab.addTab("Gestion de d'équipe", new PanneauTestEquipe());
+		tab.addTab("Gestion de personne", new PanneauTest());
 		tab.setBackground(Color.WHITE);
 		tab.setFont(police);
 		this.add(tab,BorderLayout.CENTER);
