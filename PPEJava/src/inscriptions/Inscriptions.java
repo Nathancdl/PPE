@@ -124,9 +124,9 @@ public class Inscriptions implements Serializable
 		return competition;
 	}
 	
-	public Personne createPersonne(String nom, String prenom, String mail , boolean save)
+	public Personne createPersonne(String nom, String prenom, String mail)
 	{
-		Personne personne = new Personne(this,nom, prenom, mail,save);
+		Personne personne = new Personne(this,nom, prenom, mail);
 		candidats.add(personne);
 		return personne;
 	}

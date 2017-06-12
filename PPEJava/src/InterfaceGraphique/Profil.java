@@ -1,9 +1,5 @@
 package InterfaceGraphique;
 
-public class Accueil {
-	
+public class Profil {
 
-	
-
-	
 }

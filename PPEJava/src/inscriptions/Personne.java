@@ -19,16 +19,12 @@ public class Personne extends Candidat
 
 	Connect bdd = new Connect();
 	
-	public Personne(Inscriptions inscriptions, String nom, String prenom, String mail,boolean save)
+	public Personne(Inscriptions inscriptions, String nom, String prenom, String mail)
 	{
 		super(inscriptions, nom);
 		this.prenom = prenom;
 		this.mail = mail;
 		equipes = new TreeSet<>();
-		if(save)
-		{
-			bdd.save(this);
-		}
 	}
 
 	/**
