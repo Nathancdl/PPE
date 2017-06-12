@@ -14,7 +14,7 @@ public class Bienvenu extends JPanel {
 		SpringLayout springLayout = new SpringLayout();
 		setLayout(springLayout);
 		
-		JLabel lblBienvenuSurNotre = new JLabel("Bienvenu sur notre application Java");
+		JLabel lblBienvenuSurNotre = new JLabel("Bienvenu sur le gestionnaire de compétition");
 		lblBienvenuSurNotre.setFont(new Font("Arial", Font.BOLD, 14));
 		springLayout.putConstraint(SpringLayout.NORTH, lblBienvenuSurNotre, 10, SpringLayout.NORTH, this);
 		springLayout.putConstraint(SpringLayout.WEST, lblBienvenuSurNotre, 65, SpringLayout.WEST, this);
@@ -25,7 +25,7 @@ public class Bienvenu extends JPanel {
 		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -10, SpringLayout.EAST, this);
 		add(lblNewLabel);
 		
-		JLabel lblCetteApplicationPermet = new JLabel("  L\u2019application en question permet de g\u00E9rer un ensemble de comp\u00E9titions, de");
+		JLabel lblCetteApplicationPermet = new JLabel(" L\u2019application en question permet de g\u00E9rer un ensemble de comp\u00E9titions, de");
 		springLayout.putConstraint(SpringLayout.NORTH, lblCetteApplicationPermet, 67, SpringLayout.SOUTH, lblBienvenuSurNotre);
 		springLayout.putConstraint(SpringLayout.WEST, lblCetteApplicationPermet, 83, SpringLayout.WEST, this);
 		add(lblCetteApplicationPermet);

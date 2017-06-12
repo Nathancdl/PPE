@@ -94,7 +94,7 @@ public class PanneauUser extends JPanel{
 		
 		panelAfficherPersonne.setBorder(BorderFactory.createTitledBorder("Informations"));
 		panelAfficherPersonne.setPreferredSize(tailleEdit);
-		this.add(panelAfficherPersonne);
+		this.add(panelAfficherPersonne); 
 	}
 	
 

@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 
 
 public class Connect implements Serializable
@@ -15,8 +17,26 @@ public class Connect implements Serializable
 	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
 	String login = "root";
 	String password = "";
-//	Connection cn = null;
-//	Statement st = null;
+	static Connection cn = null;
+	Statement st = null;
+	
+
+		public Connect()
+			{
+				try
+				{
+					Class.forName("com.mysql.jdbc.Driver");
+					Connection connexion = DriverManager.getConnection("jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false", "root","");
+					Connect.cn = connexion;
+					
+				}
+				catch(Exception e)
+				{	
+					 System.out.println( "Erreur lors de la connexion : " + e.getMessage() );
+				} 
+				
+			}
+	
 	
 	public void selectPersonne(Inscriptions inscription)
 	{
@@ -38,6 +58,28 @@ public class Connect implements Serializable
 			e.printStackTrace();
 		}	
 	}
+	
+	
+		public static HashMap<String, Integer> selectPersonne()
+			{
+				HashMap<String, Integer> listeP =  new LinkedHashMap<String, Integer>();
+				try {
+					Statement st = null;
+					String requete ="SELECT * FROM candidat, personne where id_candidat = id_personne";
+					st = cn.createStatement();	
+					ResultSet result;
+					result = st.executeQuery(requete);
+					while ( result.next() ) {
+					  String nom = result.getString( "nom" );
+						int idP = result.getInt("id_personne");
+						listeP.put(nom,idP);
+					}
+					
+				} catch (Exception e) {
+					e.printStackTrace();
+				}	
+				return listeP;
+			}
 	
 	public static void afficheP(Inscriptions inscription)
 	{
@@ -253,7 +295,7 @@ public class Connect implements Serializable
 			
 			int equipe = competition.estEnEquipe() ? 1 : 0;
 			
-			String requete ="Insert into competition(date,nom,enequipe) values ('"+competition.getDateCloture()+"','"+competition.getNom()+"','"+equipe+"')";
+			String requete ="Insert into competition(date_debut,nom_competition,enEquipe) values ('"+competition.getDateCloture()+"','"+competition.getNom()+"','"+equipe+"')";
 			st.executeUpdate(requete);
 			
 			int idCompetition=0;

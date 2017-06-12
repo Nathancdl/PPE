@@ -18,6 +18,9 @@ import java.sql.DriverManager;
 
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map.Entry;
+
 import javax.swing.SpringLayout;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -85,30 +88,58 @@ public class PanneauTest extends JPanel {
 		add(btnNewButton);
 		
 		
-		btnLoadTable.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+
+			btnLoadTable.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent arg0) {
+							
+							try {
+							
+								HashMap<String, Integer> listeP = Connect.selectPersonne();
+								System.out.println(listeP);
+								
+								 int row=0;
+								 for(Entry<String, Integer> entry: listeP.entrySet()){
+								      table.setValueAt(entry.getKey(),row,0);
+								      table.setValueAt(entry.getValue(),row,1);
+								      row++;
+								 }
+								 table.setVisible(true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							} 
+							
+						}
+					});
+		
+		
+		
+		
+		
+		
+//		btnLoadTable.addActionListener(new ActionListener() {
+	//		public void actionPerformed(ActionEvent arg0) {
+	//			
+	//			try {
 				
-				try {
-				
-					Class.forName("com.mysql.jdbc.Driver");
-					String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-					String login = "root";
-					String password = "";
-					Connection cn = DriverManager.getConnection(url, login,password);
-					Statement st = cn.createStatement();	
-					String requete ="Select * From personne where personne.id_personne = id_personne";
-					ResultSet result;
-					result = st.executeQuery(requete);
-					table.setModel(DbUtils.resultSetToTableModel(result));
+	//				Class.forName("com.mysql.jdbc.Driver");
+	//				String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+	//				String login = "root";
+	//				String password = "";
+	//				Connection cn = DriverManager.getConnection(url, login,password);
+	//				Statement st = cn.createStatement();	
+	//				String requete ="Select * From personne where personne.id_personne = id_personne";
+	//				ResultSet result;
+	//				result = st.executeQuery(requete);
+	//				table.setModel(DbUtils.resultSetToTableModel(result));
 					
-				} catch (ClassNotFoundException e) {
-					e.printStackTrace();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}	
+	//			} catch (ClassNotFoundException e) {
+	//				e.printStackTrace();
+	//			} catch (SQLException e) {
+	//				e.printStackTrace();
+	//			}	
 				
-			}
-		});
+	//		}
+	//	});
 		
 
 	}
