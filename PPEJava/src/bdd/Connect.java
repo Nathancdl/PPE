@@ -436,14 +436,15 @@ public class Connect implements Serializable
 	public static void deleteE(Equipe equipe)
 	{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
 			String login = "root";
 			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="DELETE from equipe WHERE id_equipe = "+equipe.getId();
 			st.executeUpdate(requete);	
-			
+			Connect.deleteC(equipe);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -464,7 +465,7 @@ public class Connect implements Serializable
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("");
 		}
 		
 	}
