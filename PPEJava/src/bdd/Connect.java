@@ -49,7 +49,7 @@ public class Connect implements Serializable
 			ResultSet result;
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
-			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),true);
+			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),false);
 			    personne.setId(result.getInt("id_personne"));
 			}
 			
@@ -99,7 +99,7 @@ public class Connect implements Serializable
 			ResultSet result;
 			result = st.executeQuery(requete);
 			while ( result.next() ) {
-			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),true);
+			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),false);
 			    personne.setId(result.getInt("id_personne"));
 			}
 			
@@ -238,25 +238,19 @@ public class Connect implements Serializable
 				Connection cn = DriverManager.getConnection(url, login,password);
 				Statement st = cn.createStatement();	
 				String requete ="Insert into personne(prenom,mail,nom) values ('"+personne.getPrenom()+"','"+personne.getMail()+"','"+personne.getNom()+"')";
-				st.executeUpdate(requete);	
-				String requete2 ="Select id_personne From personne Where prenom ='" + personne.getPrenom() + "' And mail = '" + personne.getMail() + "'";
-				ResultSet result = st.executeQuery(requete2);
-				int idUser2 = 0;
-				while (result.next()) {
-				    idUser2 = result.getInt( "id_personne" );
-				}
-				String requete3 ="Insert into candidat(id_candidat,nom_candidat) values ('"+idUser2+"','"+personne.getNom()+"')";
+				
+				 int idp = st.executeUpdate(requete , Statement.RETURN_GENERATED_KEYS);
+				 ResultSet rs= st.getGeneratedKeys();
+		            if (rs.next()) 
+		            {
+		              System.out.println("Last Inserted ID = "+rs.getLong(1));
+		            }    
+ 
+		           
+				String requete3 ="Insert into candidat(id_candidat,nom_candidat) values ('"+rs.getLong(1)+"','"+personne.getNom()+"')";
 				st.executeUpdate(requete3);
 				
-				int idCandidat=0;
-				String requete4="SELECT id_candidat FROM candidat";
-				ResultSet result2= st.executeQuery(requete4);
-				while (result2.next()) 
-				{
-				    idCandidat = result2.getInt( "id_candidat" );
-				}
-				personne.setId(idCandidat);
-				
+
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			} catch (SQLException e) {
