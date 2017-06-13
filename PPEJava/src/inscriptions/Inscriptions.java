@@ -124,9 +124,9 @@ public class Inscriptions implements Serializable
 		return competition;
 	}
 	
-	public Personne createPersonne(String nom, String prenom, String mail)
+	public Personne createPersonne(String nom, String prenom, String mail,boolean save)
 	{
-		Personne personne = new Personne(this,nom, prenom, mail);
+		Personne personne = new Personne(this,nom, prenom, mail,save);
 		candidats.add(personne);
 		return personne;
 	}
@@ -294,4 +294,6 @@ public class Inscriptions implements Serializable
 //			System.out.println("Sauvegarde impossible." + e);
 //		}
 	}
+
+
 }
