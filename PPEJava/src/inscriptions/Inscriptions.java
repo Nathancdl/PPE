@@ -43,6 +43,8 @@ public class Inscriptions implements Serializable
 	public SortedSet<Competition> getCompetitions()
 	{
 		return Collections.unmodifiableSortedSet(competitions);
+		
+		
 	}
 	
 	/**
@@ -120,7 +122,9 @@ public class Inscriptions implements Serializable
 	
 	public Competition editeCompetition(Competition competition, String nom)
 	{
+		
 		competition.setNom(nom);
+		Connect.updateC(competition);
 		return competition;
 	}
 	
@@ -136,6 +140,8 @@ public class Inscriptions implements Serializable
 		personne.setPrenom(prenom);
 		personne.setNom(nom);
 		personne.setMail(mail);
+		Connect.updateP(personne);
+		
 		return personne;
 	}
 	

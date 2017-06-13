@@ -110,6 +110,31 @@ public class Connect implements Serializable
 		}	
 	}
 	
+	
+	public static void afficheC (Inscriptions inscription)
+	{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
+			Connection cn = DriverManager.getConnection(url, login,password);
+			Statement st = cn.createStatement();	
+			String requete ="Select * From competition where competition.id_competition = id_competition";
+			ResultSet result;
+			result = st.executeQuery(requete);
+			while ( result.next() ) {
+			    Personne personne = inscription.createPersonne(result.getString( "nom" ),result.getString( "prenom" ), result.getString( "mail" ),false);
+			    personne.setId(result.getInt("id_personne"));
+			}
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}	
+	}
+	
 	public static void selectEquipe(Inscriptions inscription)
 	{
 		try {
@@ -342,6 +367,49 @@ public class Connect implements Serializable
 				
 	}
 	
+	
+	public static void updateP(Personne personne) 
+	{	
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
+			Connection cn = DriverManager.getConnection(url, login,password);
+			Statement st = cn.createStatement();	
+
+
+			String requete3 ="UPDATE candidat set nom_candidat = '"+personne.getNom()+"' WHERE id_candidat = '"+personne.getId()+"'";
+
+			st.executeUpdate(requete3);	
+			
+			  long idpersonne = st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
+	            ResultSet rs= st.getGeneratedKeys();
+	            if (rs.next()) 
+	            {
+	              System.out.println("Last Inserted ID = "+rs.getLong(1));
+	            }    
+	            
+			String requete ="UPDATE personne set nom = '"+personne.getNom()+"',prenom = '"+personne.getPrenom()+"',mail = '"+personne.getMail()+"' WHERE id_personne = '"+personne.getId()+"'";
+			
+
+			st.executeUpdate(requete);
+			int idCandidat=0;
+			String requete4="SELECT id_candidat FROM candidat";
+			ResultSet result2= st.executeQuery(requete4);
+			while (result2.next()) 
+			{
+			    idCandidat = result2.getInt( "id_candidat" );
+			}
+			personne.setId(idCandidat);
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
+	}
 	public void save(Competition competition) 
 	{	
 		try {
@@ -496,5 +564,33 @@ public class Connect implements Serializable
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	
+	
+	
+	public static void updateC(Competition competition) 
+	{	
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+			String login = "root";
+			String password = "";
+			Connection cn = DriverManager.getConnection(url, login,password);
+			Statement st = cn.createStatement();	
+
+
+			String requete3 ="UPDATE competition set nom_competition = '"+competition.getNom()+"' WHERE id_competition = '"+competition.getId()+"'";
+
+			st.executeUpdate(requete3);	
+			
+			  
+			
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
 	}
 }
