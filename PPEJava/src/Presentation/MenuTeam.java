@@ -139,7 +139,7 @@ public class MenuTeam
 						public void optionSelectionnee()
 						{
 							String nom= commandLine.util.InOut.getString("Nom : ");
-							inscriptions.editeEquipe(equipe, nom);
+							inscriptions.editeEquipe(equipe, nom,true);
 							System.out.println(equipe.getNom()+" à bien été éditer !");
 						}
 					};

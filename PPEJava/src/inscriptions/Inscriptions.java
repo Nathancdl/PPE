@@ -155,9 +155,10 @@ public class Inscriptions implements Serializable
 		return equipe;
 	}
 	
-	public Equipe editeEquipe(Equipe equipe, String nom)
+	public Equipe editeEquipe(Equipe equipe, String nom,boolean save)
 	{
 		equipe.setNom(nom);
+		Connect.updateE(equipe);
 		return equipe;
 	}
 	
