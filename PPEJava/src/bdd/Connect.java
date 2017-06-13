@@ -277,7 +277,6 @@ public class Connect implements Serializable
 
 			String requete3 ="Insert into candidat(nom_candidat) values ('"+equipe.getNom()+"')";
 
-			st.executeUpdate(requete3);	
 			
 			  long idequipe = st.executeUpdate(requete3 , Statement.RETURN_GENERATED_KEYS);
 	            ResultSet rs= st.getGeneratedKeys();
