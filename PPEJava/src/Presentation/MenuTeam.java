@@ -36,7 +36,9 @@ public class MenuTeam
 		return liste;
 	}
 	
-	//Ajouter equipe
+	/**
+	 * Ajouter une equipe
+	 */
 	
 		static Option getOptionAjouterEquipe()
 		{
@@ -57,7 +59,9 @@ public class MenuTeam
 					};
 		}
 	
-	//Liste voir equipe
+		/**
+		 * Liste voir equipe
+		 */
 		private static ActionListe<Equipe> getActionListeVoirUneEquipe() 
 		{
 			return new ActionListe<Equipe>() {
@@ -124,7 +128,9 @@ public class MenuTeam
 						}
 					};
 		}
-		//Editer une equipe
+		/**
+		 * Editer une equipe
+		 */
 		
 		static Option getOptionEditerEquipe(Equipe equipe)
 		{
@@ -145,7 +151,9 @@ public class MenuTeam
 					};
 		}
 		
-		//Supprimer une équipe
+		/**
+		 * Supprimer une equipe
+		 */
 		
 		static Option getOptionSupprimerEquipe(Equipe equipe)
 		{
@@ -171,7 +179,10 @@ public class MenuTeam
 			return liste;
 		}
 		
-		//Liste ajouter une equipe dans une competition
+		/**
+		 * Liste ajouter une equipe dans une competition
+		 */
+		
 		
 		private static ActionListe<Competition> getActionListeAjouterUneEquipeCompetition(Equipe equipe)
 		{
@@ -215,7 +226,11 @@ public class MenuTeam
 						
 		}
 		
-		// Supprimer une personne d'une équipe
+		
+		/**
+		 * Supprimer une personne d'une équipe
+		 */
+		
 		
 		public static Liste<Personne> getListeSupprimerUnePersonneEquipe(Equipe equipe)
 		{

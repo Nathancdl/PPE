@@ -24,7 +24,9 @@ public class MenuUser
 		return inscriptions;
 	}
 	
-	//Menu personne
+	/**
+	 * Menu personne
+	 */
 		static Menu getMenuPersonne()
 		{
 			Menu menuPersonne = new Menu("Gestion de personne","1");
@@ -34,7 +36,9 @@ public class MenuUser
 			return menuPersonne;
 		}
 		
-		//Gérer une personne ou équipe
+		/**
+		 * Gerer une personne ou equipe
+		 */
 		
 		static Liste<Personne> getListeVoirUnePersonne()
 		{
@@ -47,7 +51,9 @@ public class MenuUser
 //			menuVoirUnePersonne.ajoute(getListeSupprimerUneEquipe());
 		}
 		
-		//Liste voir personne
+		/**
+		 * Liste voir une personne
+		 */
 		static ActionListe<Personne> getActionListeVoirUnePersonne() 
 		{
 			return new ActionListe<Personne>() {
@@ -82,7 +88,9 @@ public class MenuUser
 			
 		}
 		
-		//Détails personne
+		/**
+		 * Detail personne
+		 */
 		private static Option getOptionVoirUnePersonne(Personne element)
 		{
 			return new Option("Détails sur "+element.getPrenom(),"1",getActionVoirPersonne(element));
@@ -116,7 +124,9 @@ public class MenuUser
 					};
 		}
 		
-		//Supprimer une personne 
+		/**
+		 * Supprimer une personne 
+		 */
 		
 		
 		static Option getOptionSupprimerPersonne(Personne personne)
@@ -143,7 +153,9 @@ public class MenuUser
 			return liste;
 		}
 		
-		//Liste ajouter une personne dans une compétition
+		/**
+		 * Liste ajouter personne dans une competition
+		 */
 		
 			private static ActionListe<Competition> getActionListeCompetitionAjoutPersonne(Personne personne)
 			{
@@ -191,7 +203,9 @@ public class MenuUser
 				};
 			}
 			
-			//Liste ajouter une personne dans une équipe
+			/**
+			 * Liste ajouter une personne dans une equipe
+			 */
 			
 			private static Liste<Equipe> getListeAjouterUnePersonneEquipe(Personne personne)
 			{
@@ -223,7 +237,9 @@ public class MenuUser
 						};
 			}
 			
-			//Editer une personne 
+			/**
+			 * Editer une personne
+			 */
 			
 			private static Option getOptionEditerUnePersonne(Personne personne)
 			{
@@ -247,7 +263,9 @@ public class MenuUser
 					
 						};
 			}
-			//Ajouter personne
+			/**
+			 * Ajouter une personne
+			 */
 			
 			static Option getOptionAjouterPersonne()
 			{

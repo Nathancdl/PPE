@@ -26,7 +26,9 @@ public class MenuCompetition
 		return menuCompetition;
 	}
 	
-	//Gestion compétition
+	/**
+	 * Gestion de competition
+	 */
 	
 	static Liste<Competition> getListeCompetition()
 	{
@@ -75,7 +77,9 @@ public class MenuCompetition
 		return option;
 	}
 	
-	//Supprimer une personne d'une competition
+	/**
+	 *  Supprimer une personne d'une competition
+	 */
 	
 	static Liste<Candidat> getListeSupprimerUneCandidatCompetition(Competition competition)
 	{
@@ -84,7 +88,9 @@ public class MenuCompetition
 		return liste;
 	}
 	
-	//Liste supprimer un candidat d'une competition
+	/**
+	 * Liste supprimer un candidat d'une competition
+	 */
 	static ActionListe<Candidat>getListeActionSupprimerUnCandidatCompetition(Competition competition)
 	{
 		return new ActionListe<Candidat>()
@@ -112,7 +118,9 @@ public class MenuCompetition
 				};
 	}
 	
-	//Liste voir une compétition
+	/**
+	 * Liste voir une competition
+	 */
 	
 	private static Action getActionAfficherUneCompetition(Competition element) 
 	{
@@ -136,7 +144,9 @@ public class MenuCompetition
 	
 	
 	
-	//Ajouter une compétition
+	/**
+	 * Ajoute une competition
+	 */
 	
 	static Option getOptionAjouterCompetition()
 	{
@@ -170,13 +180,16 @@ public class MenuCompetition
 				};
 	}
 	
-	//Editer une competition
+	/**
+	 * Edite une competition
+	 */
 	
 	private static Option getOptionEditerUneCompetition(Competition competition)
 	{
 		Option option = new Option("Editer "+competition.getNom(),"3",getActionEditerUneCompetition(competition));
 		return option;
 	}
+	
 	
 	private static Action getActionEditerUneCompetition(Competition competition)
 	{
@@ -192,12 +205,18 @@ public class MenuCompetition
 			
 				};
 	}
-	//Supprimer une compétition
+	
+
 	private static Option getOptionSupprimerUneCompetition(Competition competition)
 	{
 		Option option = new Option("Supprimer "+competition.getNom(),"2",getActionSupprimerUneCompetition(competition));
 		return option;
 	}
+	
+	
+	/**
+	 * Supprime une competition
+	 */
 	private static Action getActionSupprimerUneCompetition(Competition element)
 	{
 		return new Action()

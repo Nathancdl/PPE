@@ -33,6 +33,10 @@ public class MainMenu
 	}
 	
 	//Menu principal
+	/**
+	 * Retourne le menu principale
+	 */
+
 	static Menu getMenuPrincipal()
 	{
 	        Menu menuPrincipal = new Menu("Menu Principal");
