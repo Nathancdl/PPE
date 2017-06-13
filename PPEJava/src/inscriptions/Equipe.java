@@ -100,6 +100,11 @@ public class Equipe extends Candidat
 	public void delete()
 	{
 		super.delete();
+
+		Connect.deleteE(this);
+		
+		
+			
 		for(Personne m : membres)
 		{
 			m.remove(this);

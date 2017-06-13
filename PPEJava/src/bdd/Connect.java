@@ -416,7 +416,7 @@ public class Connect implements Serializable
 	}
 	
 	
-	public void delete(Personne personne)
+	public void deleteP(Personne personne)
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
@@ -433,7 +433,7 @@ public class Connect implements Serializable
 		}
 		
 	}
-	public void delete(Equipe equipe)
+	public static void deleteE(Equipe equipe)
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
@@ -441,8 +441,9 @@ public class Connect implements Serializable
 			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
-			String requete ="UPDATE equipe SET deleted_at = NOW() WHERE id_candidat = "+equipe.getId();
+			String requete ="DELETE from equipe WHERE id_equipe = "+equipe.getId();
 			st.executeUpdate(requete);	
+			
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (SQLException e) {
@@ -450,7 +451,7 @@ public class Connect implements Serializable
 		}
 		
 	}
-	public void delete(Candidat candidat)
+	public static void deleteC(Candidat candidat)
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
@@ -458,7 +459,7 @@ public class Connect implements Serializable
 			String password = "";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
-			String requete ="UPDATE candidat SET deleted_at = NOW() WHERE id_candidat = "+candidat.getId();
+			String requete ="DELETE from candidat WHERE id_candidat = "+candidat.getId();
 			st.executeUpdate(requete);	
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
