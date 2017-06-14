@@ -12,13 +12,13 @@ import java.net.URI;
 import inscriptions.*;
 import javax.swing.*;
 
-public class Fenetre 
+public class Fenetre extends JFrame
 {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5626270346585492592L;
-
+	private Panneau panneau = new Panneau();
 
 	private JMenuBar menuBar = new JMenuBar();
 	private JMenu menuFichier = new JMenu("Fichier");
@@ -33,19 +33,21 @@ public class Fenetre
 	private JMenuItem item4 = new JMenuItem("Arrêter");
 	private JMenuItem item5 = new JMenuItem("Aide");
 	private JMenuItem item6 = new JMenuItem("MCD");
+	 
+	public static final int WIDTH = 1000;
+		public static final int HEIGHT = 700;
 	
-	
-	public Fenetre(Inscriptions inscriptions)
+	public Fenetre()
 	{   
-		JFrame jf = new JFrame("Gestionnaire de compétition");
-		jf.setSize(1000, 700);
-		JTabbedPane tab = new JTabbedPane();
-		JPanel P =(new PanneauTest(inscriptions)).getOnglet();
-		tab.addTab("Gestion de personnes", P);
+		
 		Image icone = Toolkit.getDefaultToolkit().getImage(Fenetre.class.getResource("ico.png"));
-		jf.setIconImage(icone);
-	    jf.setLocationRelativeTo(null);
-	    jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setIconImage(icone);
+			    this.setTitle("Gestionnaire de compétition");
+			    this.setSize(WIDTH, HEIGHT);
+			    this.setResizable(false);
+			    this.setLocationRelativeTo(null);
+			    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			    this.setContentPane(panneau);
 	   
 		menuFichier.addSeparator();
 	    menuFichier.add(item2);
@@ -57,16 +59,13 @@ public class Fenetre
 		
 		menuBar.add(menuAide);
 		
-		jf.add(tab);		
-		jf.getContentPane().add(tab);		
-		jf.setVisible(true);
-		jf.setResizable(false);
+		
 		
 		item2.addActionListener( new ActionListener(){
 			public void actionPerformed( ActionEvent e )
 			{
 
-				
+				dispose();
 			}
 		});
 		
@@ -99,11 +98,8 @@ public class Fenetre
 		});
 	
 
-	 }
+	 
 	
-	public static void main(String[] args)
-	{
-		new Fenetre(Inscriptions.getInscriptions());
-		
-	}
-}
+	 setJMenuBar(menuBar);
+	 		 this.setVisible(true);
+}}

@@ -23,7 +23,7 @@ public class Panneau extends JPanel
 	JTabbedPane tab = new JTabbedPane();
 	
 	
-	public Panneau(Inscriptions inscriptions)
+	public Panneau()
 	{
 		
 		this.setLayout(new BorderLayout());
@@ -33,7 +33,7 @@ public class Panneau extends JPanel
 		tab.addTab("Accueil", new Bienvenu());
 		tab.addTab("Gestion de compétition", new PanneauTestCompet());
 		tab.addTab("Gestion de d'équipe", new PanneauTestEquipe());
-		tab.addTab("Gestion de personne", new PanneauTest(inscriptions));
+		tab.addTab("Gestion de personne", new PanneauTest());
 		tab.setBackground(Color.WHITE);
 		tab.setFont(police);
 		this.add(tab,BorderLayout.CENTER);
