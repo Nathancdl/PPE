@@ -40,9 +40,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From personne";
@@ -67,9 +67,9 @@ public class Connect implements Serializable
 				try {
 					Statement st = null;
 					String requete ="SELECT * FROM candidat, personne where id_candidat = id_personne";
-					String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-					String login = "root";
-					String password = "";
+					String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+					String login = "ncaudeli";
+					String password = "nathoudu93";
 					Connection cn = DriverManager.getConnection(url, login,password);
 					st = cn.createStatement();	
 					ResultSet result;
@@ -90,9 +90,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From personne where personne.id_personne = id_personne";
@@ -115,9 +115,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From competition where competition.id_competition = id_competition";
@@ -139,9 +139,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From equipe e,candidat c WHERE e.id_equipe = c.id_candidat";
@@ -162,9 +162,9 @@ public class Connect implements Serializable
 	public void selectCompetitions(Inscriptions inscription)
 	{
 		try {
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
@@ -187,9 +187,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From toequipe a,candidat c WHERE a.id_equipe= c.id_candidat";
@@ -222,9 +222,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="Select * From attcompetition a,candidat c WHERE a.id_candidat= c.id_candidat";
@@ -257,9 +257,9 @@ public class Connect implements Serializable
 	{	
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-				String login = "root";
-				String password = "";
+				String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+				String login = "ncaudeli";
+				String password = "nathoudu93";
 				Connection cn = DriverManager.getConnection(url, login,password);
 				Statement st = cn.createStatement();	
 				String requete ="Insert into personne(prenom,mail,nom) values ('"+personne.getPrenom()+"','"+personne.getMail()+"','"+personne.getNom()+"')";
@@ -287,9 +287,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 
@@ -328,9 +328,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 
@@ -372,9 +372,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 
@@ -414,9 +414,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			
@@ -445,9 +445,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();		
 			String requete ="Insert into toequipe(id_personne,id_equipe) values ('"+personne.getId()+"','"+equipe.getId()+"')";
@@ -462,9 +462,10 @@ public class Connect implements Serializable
 	public void save(Candidat candidat,Competition competition) 
 	{	
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			Class.forName("com.mysql.jdbc.Driver");	
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();		
 			String requete ="Insert into tocompetition(id_candidat,id_competition) values ("+candidat.getId()+","+competition.getId()+")";
@@ -481,9 +482,10 @@ public class Connect implements Serializable
 	public void deleteP(Personne personne)
 	{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			Class.forName("com.mysql.jdbc.Driver");	
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="UPDATE personne SET deleted_at = NOW() WHERE id_candidat = "+personne.getId();
@@ -499,9 +501,9 @@ public class Connect implements Serializable
 	{
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="DELETE from equipe WHERE id_equipe = "+equipe.getId();
@@ -517,9 +519,10 @@ public class Connect implements Serializable
 	public static void deleteC(Candidat candidat)
 	{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			Class.forName("com.mysql.jdbc.Driver");	
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="DELETE from candidat WHERE id_candidat = "+candidat.getId();
@@ -535,9 +538,10 @@ public class Connect implements Serializable
 	public void delete(Competition competition)
 	{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			Class.forName("com.mysql.jdbc.Driver");	
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="UPDATE competition SET deleted_at = NOW() WHERE id_candidat = "+competition.getId();
@@ -552,9 +556,10 @@ public class Connect implements Serializable
 	public void delete(Personne personne, Equipe equipe)
 	{
 		try {
-			Class.forName("com.mysql.jdbc.Driver");	String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			Class.forName("com.mysql.jdbc.Driver");	
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 			String requete ="DELETE FROM toequipe WHERE id_personne="+personne.getId()+" AND id_equipe="+equipe.getId();
@@ -573,9 +578,9 @@ public class Connect implements Serializable
 	{	
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
-			String login = "root";
-			String password = "";
+			String url = "jdbc:mysql://172.16.0.3/ncaudeli?autoReconnect=true&useSSL=false";
+			String login = "ncaudeli";
+			String password = "nathoudu93";
 			Connection cn = DriverManager.getConnection(url, login,password);
 			Statement st = cn.createStatement();	
 
