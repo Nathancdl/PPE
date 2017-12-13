@@ -10,4 +10,4 @@ import https://github.com/alexandreMesle/CoursJava
 
 import https://github.com/alexandreMesle/inscriptionsSportives
 
-# Install commandLine.jar and add to build path
+# Don't forget commandLine.jar in /lib and add to build path
