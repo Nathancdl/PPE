@@ -20,7 +20,7 @@ public class Bienvenu extends JPanel {
 		springLayout.putConstraint(SpringLayout.WEST, lblBienvenuSurNotre, 65, SpringLayout.WEST, this);
 		add(lblBienvenuSurNotre);
 		
-		JLabel lblNewLabel = new JLabel("R\u00E9alis\u00E9 par Dylan & Nathan");
+		JLabel lblNewLabel = new JLabel("R\u00E9alis\u00E9 par Nathan");
 		springLayout.putConstraint(SpringLayout.SOUTH, lblNewLabel, -10, SpringLayout.SOUTH, this);
 		springLayout.putConstraint(SpringLayout.EAST, lblNewLabel, -10, SpringLayout.EAST, this);
 		add(lblNewLabel);
