@@ -11,3 +11,5 @@ import https://github.com/alexandreMesle/CoursJava
 import https://github.com/alexandreMesle/inscriptionsSportives
 
 # Don't forget commandLine.jar in /lib and add to build path
+
+# Import database name : "competition"
