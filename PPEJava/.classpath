@@ -6,7 +6,7 @@
 	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.40-bin.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/InscriptionsSportives"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/CoursJava"/>
-	<classpathentry kind="lib" path="/CoursJava/lib/commandLine.jar"/>
 	<classpathentry kind="lib" path="lib/rs2xml.jar"/>
+	<classpathentry kind="lib" path="C:/Users/lp/git/PPE/PPEJava/lib/commandLine.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

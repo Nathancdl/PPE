@@ -43,7 +43,7 @@ public class PanneauTestCompet extends JPanel {
 				try {
 				
 					Class.forName("com.mysql.jdbc.Driver");
-					String url = "jdbc:mysql://localhost/m2ljava?autoReconnect=true&useSSL=false";
+					String url = "jdbc:mysql://localhost/competition?autoReconnect=true&useSSL=false";
 					String login = "root";
 					String password = "";
 					Connection cn = DriverManager.getConnection(url, login,password);
